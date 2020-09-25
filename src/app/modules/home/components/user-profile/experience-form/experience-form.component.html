@@ -1,0 +1,119 @@
+<div class="container">
+    <svg class="close" matDialogClose (click)="close()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="login-title">Add Experience Here</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+    <form class="normal-form" [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+        <div class="control-containers">
+
+            <mat-form-field>
+                <mat-label>Job Position</mat-label>
+                <input type="text" formControlName="position" matInput
+                    placeholder="Ex. Summer Intern, Full Stack Developer" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="experienceForm.get('position').hasError('required')">
+                    Job Position is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Job Type</mat-label>
+                <input type="text" formControlName="jobType" matInput placeholder="Ex. Internship"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="experienceForm.get('jobType').hasError('required')">
+                    Job Type is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Organization Name</mat-label>
+                <input type="text" formControlName="company" matInput placeholder="Ex. Google, Amazon"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="experienceForm.get('company').hasError('required')">
+                    Organization Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>City</mat-label>
+                <input type="text" formControlName="jobCity" matInput placeholder="Ex. Surat, Tokyo"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="experienceForm.get('jobCity').hasError('required')">
+                    City is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>State</mat-label>
+                <input type="text" formControlName="jobState" matInput placeholder="Ex. Gujarat, Karnataka"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="experienceForm.get('jobState').hasError('required')">
+                    State is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <input type="text" formControlName="jobCountry" matInput placeholder="Ex. India, USA"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="experienceForm.get('jobCountry').hasError('required')">
+                    Country is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Joining Date</mat-label>
+                            <input formControlName="join" matInput [matDatepicker]="picker1"
+                                placeholder="Ex. DD/MM/YYYY">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1 [startAt]="startDate"></mat-datepicker>
+                            <mat-error *ngIf="experienceForm.get('join').hasError('required')">
+                                Joining Date is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Leave Date / Expected Leave Date</mat-label>
+                            <input formControlName="out" matInput [matDatepicker]="picker2"
+                                placeholder="Ex. DD/MM/YYYY">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2 [startAt]="startDate"></mat-datepicker>
+                            <mat-error *ngIf="experienceForm.get('out').hasError('required')">
+                                Leave Date is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+
+            <mat-form-field>
+                <mat-label>Job Information</mat-label>
+                <textarea matInput formControlName="jobInfo" [errorStateMatcher]="matcher"></textarea>
+            </mat-form-field>
+
+            <div>
+                <button class="btn-login" mat-raised-button color="primary" type="submit">Add</button>
+            </div>
+
+        </div>
+    </form>
+</div>

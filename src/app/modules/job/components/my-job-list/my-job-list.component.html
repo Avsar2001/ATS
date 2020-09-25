@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="job-header">
+        <p>My Jobs</p>
+    </div>
+    <div class="container">
+        <div *ngIf="jobCards.length == 0" class="no-job">
+            <p class="no-job-title">Sorry! You Don't Have Any Job Yet!</p>
+            <p class="no-job-subtitle">Create Here!</p>
+            <button class="no-job-button" routerLink="../jobs" mat-raised-button>Post a new Job</button>
+        </div>
+        <div class="job-row">
+
+            <app-jobs-card *ngFor="let j of jobCards" [author]="author" [id]="j.id" [isVerified]="j.verificationStatus">
+                <div class="title">{{j?.jobTitle | titlecase}}</div>
+                <span class="date">{{j?.dueDate | date}}</span>
+                <div class="job-location">{{j?.city}}, {{j?.state}}, {{j?.country}}</div>
+                <div class="description">{{j?.payPerAnnum}}, Exp {{j?.experience}} yrs</div>
+            </app-jobs-card>
+
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,47 @@
+<div class="page">
+    <h1 class="news-title">News And Updates</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 catogary">
+                <mat-selection-list #t>
+                    <mat-list-option (click)="filter(t.selectedOptions.selected)" *ngFor="let tag of tags"
+                        [value]="tag">
+                        {{tag | titlecase}}
+                    </mat-list-option>
+                </mat-selection-list>
+            </div>
+
+            <div class="col-lg-8 col-md-12 col-sm-12 news-list">
+                <div class="news-block" *ngFor="let n of news">
+
+                    <div>
+                        <img class="news-img"
+                            [src]="n.imagePhoto ? n.imagePhoto : '../../../../../assets/images/No_Image.jpg' " alt=""
+                            srcset="">
+                    </div>
+                    <div class="content">
+                        <!-- <p class="title">Gopalchetty Brahma student of LDCE Aerospace Engineering wins International
+                                    Silver honor.</p> -->
+                        <p class="title" [routerLink]="['../news/',n.id]">{{n?.title | titlecase}}</p>
+                        <!-- <span class="date">Aug 19, 2020 - <span>LDCE News</span></span> -->
+                        <span class="date">{{n?.createdOn | date:'medium'}} - <span>LDCE News</span> <span>
+                                <mat-chip-list aria-label="Fish selection">
+                                    <mat-chip *ngFor="let tag of n.tags">{{tag | titlecase}}</mat-chip>
+
+                                </mat-chip-list>
+                            </span></span>
+                        <!-- <p class="description">Aerospace engineering student Gopalchetty Brahma score top 7% position in
+                                    the International Astronomy -Aerospace competition (IAAC-2020) held online.</p> -->
+                        <p class="description">
+                            {{(n?.summary.length>150)? (n?.summary | slice:0:150)+'...':(n?.summary)}}</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

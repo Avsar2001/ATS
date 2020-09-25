@@ -1,0 +1,74 @@
+<div class="container">
+    <svg class="close" matDialogClose (click)="close()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="login-title">Update Here</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+    <form class="normal-form" [formGroup]="personalForm">
+        <div class="control-containers">
+
+            <mat-form-field>
+                <mat-label>FirstName</mat-label>
+                <input type="text" formControlName="firstName" matInput placeholder="Ex. Avsar"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="personalForm.get('firstName').hasError('required')">
+                    First Name is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>LastName</mat-label>
+                <input type="text" formControlName="lastName" matInput placeholder="Ex. Vora"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="personalForm.get('lastName').hasError('required')">
+                    Last Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Enrollment</mat-label>
+                <input type="text" formControlName="enrollment" matInput placeholder="Ex. 180280116125"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="personalForm.get('enrollment').hasError('required')">
+                    Enrollment is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="personalForm.get('enrollment').hasError('pattern')">
+                    Enrollment should be only in Digits <strong>[0-9]</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <label style="margin-top: 16px;">Gender</label>
+            <mat-radio-group aria-label="Gender" formControlName="gender">
+                <mat-radio-button value="1">Male</mat-radio-button>
+                <mat-radio-button value="2">Female</mat-radio-button>
+                <mat-radio-button value="3">Other</mat-radio-button>
+            </mat-radio-group>
+
+
+            <mat-form-field>
+                <mat-label>Bio</mat-label>
+                <textarea matInput formControlName="bio" [errorStateMatcher]="matcher"></textarea>
+            </mat-form-field>
+
+            <div>
+                <button class="btn-login" mat-raised-button color="primary" (click)="onSubmit()"
+                    type="submit">Update</button>
+            </div>
+
+        </div>
+    </form>
+</div>

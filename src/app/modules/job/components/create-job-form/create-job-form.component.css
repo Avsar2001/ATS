@@ -1,0 +1,98 @@
+.normal-form {
+  margin: 10px;
+}
+.control-containers {
+  width: 100%;
+  padding: 5%;
+}
+.control-containers > * {
+  width: 100%;
+}
+.button-row button {
+  margin: 5px;
+  width: 100%;
+}
+.login-title {
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: rgb(249, 170, 51);
+  font-size: 30px;
+}
+:host ::ng-deep .mat-toolbar {
+  background-color: white;
+}
+/* input color class */
+:host ::ng-deep input.mat-input-element {
+  color: #484a4c;
+}
+
+/* Change label color on focused */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: rgb(249, 170, 51) !important;
+}
+
+/* underline border color on focused */
+:host ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+  background-color: rgb(249, 170, 51) !important;
+}
+/* close icon */
+.close {
+  top: -20px;
+  position: relative;
+  left: 30px;
+  color: black;
+}
+.close:hover {
+  color: rgb(249, 170, 51) !important;
+}
+
+/* for mat input field */
+:host ::ng-deep .mat-form-field-infix {
+  font-family: "VarelaRound";
+}
+:host ::ng-deep input.mat-input-element {
+  font-family: "Objektiv-Regular";
+}
+
+:host
+  ::ng-deep
+  .mat-form-field-appearance-legacy
+  .mat-form-field-subscript-wrapper {
+  margin: 10px 0;
+  font-size: 14px;
+}
+:host ::ng-deep .mat-form-field {
+  font-size: 16px;
+}
+
+/* for login header */
+.mat-toolbar-single-row {
+  font-family: "Helvetica New Bold";
+  border-radius: 5px;
+}
+
+/* for login button */
+.btn-login {
+  color: rgb(249, 170, 51);
+  outline: none;
+  background-color: wheat;
+  margin: 16px 0;
+  width: 100%;
+}
+/* for sign up link */
+.link {
+  color: #007bff;
+  cursor: pointer;
+}
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(249, 170, 51);
+}
+
+/* for date */
+:host
+  >>> .mat-form-field-appearance-legacy
+  .mat-form-field-suffix
+  .mat-icon-button {
+  outline: none;
+}

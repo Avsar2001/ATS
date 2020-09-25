@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="header">
+        <p class="page-title">Search Alumni Here</p>
+        <p class="page-subtitle">So What We Have?</p>
+    </div>
+    <div class="search-bar">
+        <mat-form-field>
+            <mat-label>Search Here</mat-label>
+            <input type="text" (keyup)="filterUsers($event)" matInput placeholder="Ex. Avsar Vora">
+
+        </mat-form-field>
+    </div>
+
+    <div class="wrapper">
+
+        <div class="profile-card" *ngFor="let user of usersList | search:'username':username; let i = index; ">
+            <div class="card-bio">
+                <div>
+                    <img class="profile-img pull-up" [routerLink]="['../users/',user.id]"
+                        [src]=" user.profileImage ? user.profileImage : '../../../../../assets/images/default-profile-picture1.jpg'"
+                        alt="" srcset="">
+                </div>
+                <svg class="quote-img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
+                    viewBox="0 0 172 172" style=" fill:#000000;">
+                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                        style="mix-blend-mode: normal">
+                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                        <g fill="#f9aa33">
+                            <path
+                                d="M154.05108,32.71942v0c0,1.64475 -1.00333,3.1605 -2.55133,3.71233c-13.115,4.67625 -33.24975,21.87267 -33.24975,49.56825c0,4.75867 0.81342,7.16667 2.65167,7.16667c2.15358,0 5.5685,-3.58333 15.265,-3.58333c11.78558,0 25.08333,9.3955 25.08333,25.29475c0,13.91408 -10.43467,28.45525 -28.66667,28.45525c-14.81708,0 -35.83333,-11.04742 -35.83333,-43.33325c0,-44.71283 33.67258,-63.69017 51.71467,-70.98942c2.66242,-1.075 5.58642,0.83492 5.58642,3.70875z">
+                            </path>
+                            <path
+                                d="M68.05108,32.71942v0c0,1.64475 -1.00333,3.1605 -2.55133,3.71233c-13.115,4.67625 -33.24975,21.87267 -33.24975,49.56825c0,4.75867 0.81342,7.16667 2.65167,7.16667c2.15358,0 5.5685,-3.58333 15.265,-3.58333c11.78558,0 25.08333,9.3955 25.08333,25.29475c0,13.91408 -10.43467,28.45525 -28.66667,28.45525c-14.81708,0 -35.83333,-11.04742 -35.83333,-43.33325c0,-44.71283 33.67258,-63.69017 51.71467,-70.98942c2.66242,-1.075 5.58642,0.83492 5.58642,3.70875z">
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+                <p class="person-bio">"{{ user.personal.bio }}" </p>
+                <p class="username">- {{user.username}}</p>
+
+            </div>
+            <div class="personal-info">
+                <h3>
+                    {{user.personal.firstName | titlecase}} {{user.personal.lastName | titlecase}}
+                </h3>
+
+                <b>
+                    <p class="role">
+                        {{user.contact.city | uppercase}} | {{user.contact.state | uppercase}} |
+                        {{user.contact.country | uppercase}}
+                    </p>
+                </b>
+            </div>
+        </div>
+
+
+    </div>
+</div>

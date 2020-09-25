@@ -1,0 +1,113 @@
+.page {
+  padding: 32px 0;
+}
+.news-title {
+  letter-spacing: normal;
+  font-family: "Helvetica New Bold";
+  font-size: 60px;
+  font-weight: 600;
+  text-align: center;
+  margin: 70px;
+  color: rgb(249, 170, 51);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.catogary {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 0.4rem;
+  -webkit-box-shadow: 1px 1px 1px 1px #e4e4e4;
+  height: fit-content;
+}
+
+.news-list {
+  padding: 0 50px;
+}
+.news-block {
+  display: flex;
+  background: white;
+  border-radius: 0.4rem;
+  width: 100%;
+  height: 200px;
+  -webkit-box-shadow: 1px 1px 1px 1px #e4e4e4;
+  cursor: pointer;
+  flex-direction: row;
+  font-size: 1.3rem;
+  color: #333;
+  text-shadow: none;
+  margin-bottom: 20px;
+}
+.news-block .news-img {
+  border-radius: 0.4rem 0 0 0.4rem;
+  background-color: rgba(204, 204, 204, 0.35);
+  width: 220px;
+  display: inline-table;
+  flex: 1;
+  position: relative;
+  height: 200px;
+  object-fit: cover;
+}
+.news-block .content {
+  padding: 20px 30px;
+  flex: 1.88;
+  position: relative;
+}
+
+/* for checkbox */
+:host >>> .mat-pseudo-checkbox-checked,
+.mat-pseudo-checkbox-indeterminate,
+.mat-accent .mat-pseudo-checkbox-checked,
+.mat-accent .mat-pseudo-checkbox-indeterminate {
+  background: rgb(249, 170, 51);
+}
+/* for list of tags */
+.mat-list-base {
+  padding-top: 0px;
+}
+.news-block .content .title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-family: "VarelaRound", sans-serif;
+}
+.news-block .content .title:hover {
+  color: rgb(249, 170, 51);
+  transition: linear 0.3s;
+}
+.news-block .content .date {
+  line-height: 1;
+  color: #828282;
+  font-size: 13px;
+  display: block;
+  margin-top: 0.5rem;
+  font-family: "Objektiv-Regular";
+}
+.news-block .content .date span:hover {
+  color: rgb(249, 170, 51);
+  transition: linear 0.3s;
+}
+.news-block .content .description {
+  margin-top: 1.5rem;
+  font-size: 14px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 3.875rem;
+  overflow: hidden;
+  word-break: break-word;
+  font-family: "Objektiv-Regular";
+}
+:host >>> .mat-chip-list-wrapper .mat-standard-chip {
+  margin: 0 4px 0 0;
+}
+:host >>> .mat-standard-chip {
+  min-height: 25px;
+}
+:host >>> .mat-chip-list-wrapper {
+  margin: 10px 0;
+}

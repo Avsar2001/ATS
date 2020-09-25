@@ -1,0 +1,80 @@
+<!--combining our child components to create a single component-->
+<div class="section animated fadeIn page">
+  <div class="container">
+    <div class="page-title">
+      <p class="title">Events</p>
+      <button mat-raised-button (click)="createEvent()">Create Event</button>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+
+      </div>
+      <div class="col-md-7">
+        <div id="posts-list" class="events">
+          <!-- SECTION -->
+          <div class="section">
+            <!-- container -->
+            <div class="container">
+              <!-- row -->
+              <div class="row">
+                <div class="col-12">
+
+                  <!-- /row -->
+
+
+                  <!-- Remedies post list -->
+                  <div *ngIf="eventsList" style="margin: 15px;">
+                    <div *ngFor="let event of eventsList">
+                      <div class="wow animate__animated animate__bounceInRight" data-wow-delay="0.5s"
+                        data-wow-duration="1s">
+                        <div class="post post-row ">
+                          <div class="row">
+                            <div class="col-md 4">
+                              <a class="post-img" href="#">
+                                <img
+                                  [src]=" event.eventPhoto ? event.eventPhoto : '../../../../../assets/images/No_Image.jpg' ">
+                              </a>
+                            </div>
+                            <div class="col-md-8">
+                              <div class="post-body">
+                                <div class="post-category">
+                                  <a href="#">
+                                  </a>
+                                </div>
+                                <h3 class="post-title"><a [routerLink]="['../events',event.id]">
+                                    {{event?.t | titlecase}}
+                                  </a></h3>
+                                <ul class="post-meta">
+                                  <li><a>{{event?.host}}</a></li>
+                                  <li>{{event?.eventDate | date }} - {{event?.eventTime}}</li>
+
+                                </ul>
+                                <span class="posted-date">Posted On - {{event?.createdDate | date:'medium'}}</span>
+                                <p>
+                                  {{(event?.description.length>150)? (event.description | slice:0:150)+'...':(event.description)}}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /post -->
+
+                </div>
+              </div>
+              <!-- /row -->
+            </div>
+            <!-- /container -->
+          </div>
+          <!-- /SECTION -->
+        </div>
+
+      </div>
+      <!-- <div class="col-md-4">
+                <app-sidebar-content></app-sidebar-content>
+            </div> -->
+    </div>
+  </div>
+</div>

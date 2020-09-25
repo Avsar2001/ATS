@@ -1,0 +1,67 @@
+<div class="container">
+    <svg class="close" matDialogClose (click)="close()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="login-title">Login Here</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+    <form class="normal-form" [formGroup]="loginForm">
+        <div class="control-containers">
+
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input type="text" formControlName="username" matInput placeholder="Ex. Name123"
+                    [errorStateMatcher]="matcher" (focusout)="username($event)">
+                <mat-hint *ngIf="status === 'checking'" align="start">checking... </mat-hint>
+                <mat-spinner *ngIf="status == 'checking'" diameter="15"></mat-spinner>
+                <mat-error *ngIf="loginForm.get('username').hasError('required')">
+                    Username is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('username').hasError('notFound')">
+                    Username is not <strong>Found.</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field style="margin-top: 16px;">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" #password matInput placeholder="Ex. Xy@jf%009^"
+                    [errorStateMatcher]="matcher">
+                <mat-hint *ngIf="passStatus === 'checking'" align="start">checking... </mat-hint>
+                <mat-spinner *ngIf="passStatus == 'checking'" diameter="15"></mat-spinner>
+                <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('password').hasError('invalid_password')">
+                    Your Password is <strong>wrong!</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <div>
+                <button (click)="onSubmit()" class="btn-login" mat-raised-button color="primary"
+                    type="submit">Login</button>
+            </div>
+
+            <div class="forgot text-center">
+                <div style="margin: 10px 0 5px 0;">
+                    <span>Forgot </span><span class="link" (click)="forgotPass()"> Username/Password ?</span>
+                </div>
+                <div style="margin: 5px 0;">
+                    <span>Create an account? </span><span class="link" (click)="openRegister()"> SignUp</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

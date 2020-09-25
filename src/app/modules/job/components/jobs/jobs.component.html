@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="job-header">
+    <p>Latest Offering Jobs</p>
+    <button mat-raised-button (click)="createJob()">Post a new Job</button>
+  </div>
+  <div class="container">
+    <div class="job-row">
+
+      <app-jobs-card *ngFor="let j of jobCards" [author]="j.authorId" [id]="j.id" [isVerified]="j.verificationStatus">
+        <div class="title">{{j?.jobTitle | titlecase}}</div>
+        <span class="date">{{j?.dueDate | date}}</span>
+        <div class="job-location">{{j?.city}}, {{j?.state}}, {{j?.country}}</div>
+        <div class="description">{{j?.payPerAnnum}}, Exp {{j?.experience}} yrs</div>
+      </app-jobs-card>
+
+
+    </div>
+  </div>
+
+</div>

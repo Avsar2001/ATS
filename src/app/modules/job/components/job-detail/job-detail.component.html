@@ -1,0 +1,210 @@
+<div class="section page">
+    <div class="job-image">
+        <div class="job-overlay">
+        </div>
+        <div class="content row">
+            <div>
+                <img class="logo"
+                    [src]=" authorProfileImage ? authorProfileImage : 'https://img.icons8.com/bubbles/100/000000/user-female-circle.png' ">
+            </div>
+            <div class="title">
+                <p id="position">{{job?.jobTitle | titlecase}}</p>
+                <p id="summary">{{job?.jobType | titlecase}}</p>
+                <p id="properties">
+                    <span id="location">
+                        <img src="https://img.icons8.com/color/20/000000/india.png" />
+                        {{job?.country}}
+                    </span>
+                    <img src="https://img.icons8.com/fluent/20/000000/verified-account.png" /> Verified
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="container">
+            <mat-grid-list cols="12" rowHeight="100px" gutterSize="20px">
+                <mat-grid-tile colspan="8" rowspan="5" style="padding: 30px;">
+                    <p id="body-title">Job Description</p>
+                    <div id="body-content">
+                        <p>{{job?.description}}</p>
+                        <p>{{job?.description}}</p>
+                        <p>{{job?.description}}</p>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="4" rowspan="6" style="padding: 30px;">
+                    <button class="btn btn-primary" style="margin: 30px;
+                   width: 100%;">Apply Now</button>
+
+                    <div class="job-summary">
+                        <p id="summary-title"><span>Job Summary</span></p>
+
+                        <div class="row" style="margin: 10px 10px">
+                            <p class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#f9aa33">
+                                            <path
+                                                d="M86,14.33333c-27.70633,0 -50.16667,22.46033 -50.16667,50.16667c0,35.83333 50.16667,93.25267 50.16667,93.25267c0,0 50.16667,-57.41933 50.16667,-93.25267c0,-27.70633 -22.46033,-50.16667 -50.16667,-50.16667zM107.5,71.66667v-14.33333h-14.33333v14.33333h-14.33333v-14.33333h-14.33333v14.33333h-14.33333v-14.33333h14.33333v-14.33333h14.33333v14.33333h14.33333v-14.33333h14.33333v14.33333h14.33333v14.33333z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </p>
+                            <div class="summary-vise-list">
+                                <p class="title">Location</p>
+                                <p class="content">{{job?.city | titlecase}} {{job?.state | titlecase}}
+                                    {{job?.country | titlecase}}</p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 10px 10px">
+                            <p class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#f9aa33">
+                                            <path
+                                                d="M64.5,21.5v7.16667h-35.83333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v43c0,7.90483 6.4285,14.33333 14.33333,14.33333h70.08496c3.9345,-4.3645 9.58687,-7.16667 15.91504,-7.16667h5.43099l0.86784,-0.86784c4.05633,-4.0635 9.46067,-6.29883 15.20117,-6.29883c5.7405,0 11.14484,2.23533 15.20117,6.29883l0.86784,0.86784h3.42936c1.23983,-2.11417 2.00163,-4.54367 2.00163,-7.16667v-43c0,-7.91917 -6.41417,-14.33333 -14.33333,-14.33333h-35.83333v-7.16667zM86,71.66667c3.956,0 7.16667,3.21067 7.16667,7.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667zM136.16667,100.33333c-1.83288,0 -3.66597,0.69853 -5.06706,2.09961l-5.06706,5.06706h-11.36589c-3.96317,0 -7.16667,3.2035 -7.16667,7.16667v11.36589l-5.06706,5.06706c-2.80217,2.80217 -2.80217,7.33194 0,10.13411l5.06706,5.06706v11.36589c0,3.96317 3.2035,7.16667 7.16667,7.16667h11.36589l5.06706,5.06706c1.3975,1.3975 3.23239,2.09961 5.06706,2.09961c1.83467,0 3.66956,-0.70211 5.06706,-2.09961l5.06706,-5.06706h11.36589c3.96317,0 7.16667,-3.2035 7.16667,-7.16667v-11.36589l5.06706,-5.06706c2.80217,-2.80217 2.80217,-7.33194 0,-10.13411l-5.06706,-5.06706v-11.36589c0,-3.96317 -3.2035,-7.16667 -7.16667,-7.16667h-11.36589l-5.06706,-5.06706c-1.40108,-1.40108 -3.23418,-2.09961 -5.06706,-2.09961zM14.33333,110.67741v18.32259c0,7.91917 6.41417,14.33333 14.33333,14.33333h58.63509c-0.80983,-2.279 -1.30176,-4.67983 -1.30176,-7.16667c0,-5.7405 2.23533,-11.14484 6.29883,-15.20117l0.86784,-0.86784v-5.43099h-64.5c-5.246,0 -10.09783,-1.52393 -14.33333,-3.98926z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </p>
+                            <div class="summary-vise-list">
+                                <p class="title">Job Type</p>
+                                <p class="content">{{job?.jobType | titlecase}}</p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 10px 10px">
+                            <p class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#f9aa33">
+                                            <path
+                                                d="M150.5,28.66667h-129c-7.90483,0 -14.33333,6.4285 -14.33333,14.33333v86c0,7.90483 6.4285,14.33333 14.33333,14.33333h129c7.90483,0 14.33333,-6.4285 14.33333,-14.33333v-86c0,-7.90483 -6.4285,-14.33333 -14.33333,-14.33333zM71.66667,107.5h-43v-14.33333h43zM78.83333,78.83333h-50.16667v-14.33333h50.16667zM142.07917,102.383c0,16.684 -13.70267,18.93433 -16.125,19.23533v7.38167h-7.181v-7.3745c-2.236,-0.30817 -17.27883,-1.9565 -17.27883,-22.6825h13.545c0,12.24067 6.31383,11.73183 7.27417,11.73183c1.0535,0 6.22067,-0.1935 6.22067,-8.1915c0,-15.9745 -24.7895,-8.88667 -24.7895,-32.8305c0,-16.41167 13.60233,-18.97017 16.03183,-19.27833v-7.3745h7.224v7.568c2.3005,0.43717 15.17183,3.3755 15.17183,22.20233h-13.545c0,-9.83983 -4.17817,-11.38783 -5.934,-11.38783c-0.96033,0 -5.41083,0.25083 -5.41083,8.32767c0.00717,14.09683 24.79667,9.70367 24.79667,32.67283z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </p>
+                            <div class="summary-vise-list">
+                                <p class="title">Salary</p>
+                                <p class="content">{{job?.payPerAnnum | uppercase}}</p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 10px 10px">
+                            <p class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#f9aa33">
+                                            <path
+                                                d="M35.83333,14.33333c-11.85367,0 -21.5,9.64633 -21.5,21.5v14.33333h14.33333v93.16667h35.83333v-14.33333h-21.5v-78.83333h78.83333v-14.33333c0,-3.94883 3.21067,-7.16667 7.16667,-7.16667c4.04938,0 7.16667,3.11728 7.16667,7.16667v107.5h14.33333v-107.5c0,-11.78895 -9.71105,-21.5 -21.5,-21.5zM57.33333,71.66667v14.33333h64.5v-14.33333zM57.33333,100.33333v14.33333h14.33333v-14.33333zM100.33333,100.33333c-11.78924,0 -21.5,9.71076 -21.5,21.5c0,6.28092 2.80821,11.9122 7.16667,15.85905v25.74121l14.33333,-8.95833l14.33333,8.95833v-25.74121c4.35846,-3.94685 7.16667,-9.57814 7.16667,-15.85905c0,-11.78924 -9.71076,-21.5 -21.5,-21.5zM100.33333,114.66667c4.04292,0 7.16667,3.12374 7.16667,7.16667c0,4.04292 -3.12374,7.16667 -7.16667,7.16667c-4.04292,0 -7.16667,-3.12374 -7.16667,-7.16667c0,-4.04292 3.12374,-7.16667 7.16667,-7.16667z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </p>
+                            <div class="summary-vise-list">
+                                <p class="title">Qualification</p>
+                                <p class="content">{{job?.qualification | uppercase}}</p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 10px 10px">
+                            <p class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#f9aa33">
+                                            <path
+                                                d="M129,0c-23.65,0 -43,19.35 -43,43c0,23.65 19.35,43 43,43c23.65,0 43,-19.35 43,-43c0,-23.65 -19.35,-43 -43,-43zM21.5,14.33333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v86c0,7.91917 6.41417,14.33333 14.33333,14.33333h50.16667c0,7.91917 -6.41417,14.33333 -14.33333,14.33333v14.33333h57.33333v-14.33333c-7.91917,0 -14.33333,-6.41417 -14.33333,-14.33333h50.16667c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-26.94499c-4.31433,3.45433 -9.13033,6.29144 -14.33333,8.39844v4.21322h-129v-71.66667h52.04232c1.3115,-5.08833 3.27808,-9.89717 5.85091,-14.33333zM129,14.33333c15.76667,0 28.66667,12.9 28.66667,28.66667c0,15.76667 -12.9,28.66667 -28.66667,28.66667c-15.76667,0 -28.66667,-12.9 -28.66667,-28.66667c0,-15.76667 12.9,-28.66667 28.66667,-28.66667zM132.06543,22.33984l-11.46386,21.65397l15.0332,15.0332l7.60059,-7.60059l-9.42025,-9.42025l7.75456,-14.64128zM86,107.5c3.956,0 7.16667,3.21067 7.16667,7.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </p>
+                            <div class="summary-vise-list">
+                                <p class="title">Experience</p>
+                                <p class="content">{{job?.experience}} Years</p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 10px 10px">
+                            <p class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#f9aa33">
+                                            <path
+                                                d="M86,14.33333c-39.5815,0 -71.66667,32.08517 -71.66667,71.66667c0,39.5815 32.08517,71.66667 71.66667,71.66667c39.5815,0 71.66667,-32.08517 71.66667,-71.66667c0,-39.5815 -32.08517,-71.66667 -71.66667,-71.66667zM109.59983,119.7335l-30.7665,-30.7665v-45.967h14.33333v40.033l26.56683,26.56683z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </p>
+                            <div class="summary-vise-list">
+                                <p class="title">Posted</p>
+                                <p class="content">{{job?.postedDate | date}}</p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 10px 10px">
+                            <p class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#f9aa33">
+                                            <path
+                                                d="M86,14.33333c-26.45933,0 -49.5538,14.448 -61.96647,35.83333h17.49675c6.45,-7.96933 14.86658,-14.27634 24.66341,-17.90267c-2.24317,5.21733 -4.04099,11.30934 -5.41699,17.90267h14.73925c3.43283,-14.1685 8.24089,-21.5 10.48405,-21.5c2.24317,0 7.05122,7.3315 10.48405,21.5h14.73925c-1.376,-6.59333 -3.18099,-12.68534 -5.41699,-17.90267c9.78967,3.62633 18.21341,9.93334 24.66341,17.90267h17.49674c-12.41267,-21.38533 -35.50714,-35.83333 -61.96647,-35.83333zM7.16667,64.5l8.90234,43h9.37825l6.08887,-24.87337l6.07487,24.87337h9.33626l8.90234,-43h-10.778l-3.84928,24.11751l-5.72493,-24.11751h-7.97852l-5.73893,24.15951l-3.80729,-24.15951zM61.65853,64.5l8.90234,43h9.37826l6.08886,-24.87337l6.07487,24.87337h9.33627l8.90234,-43h-10.764l-3.86328,24.11751l-5.71094,-24.11751h-7.99252l-5.72493,24.15951l-3.82129,-24.15951zM116.15039,64.5l8.90235,43h9.37825l6.08887,-24.87337l6.07487,24.87337h9.33626l8.90235,-43h-10.77799l-3.84929,24.11751l-5.72493,-24.11751h-7.97851l-5.73893,24.15951l-3.80729,-24.15951zM24.03353,121.83333c12.41267,21.38533 35.50714,35.83333 61.96647,35.83333c26.45933,0 49.5538,-14.448 61.96647,-35.83333h-17.49674c-6.45,7.96933 -14.86658,14.27634 -24.66341,17.90267c2.236,-5.21733 4.02699,-11.30934 5.40299,-17.90267h-14.73925c-3.43283,14.1685 -8.24089,21.5 -10.48405,21.5c-2.24317,0 -7.03722,-7.3315 -10.47006,-21.5h-14.73925c1.376,6.59333 3.18099,12.68534 5.41699,17.90267c-9.78967,-3.62633 -18.21341,-9.93334 -24.66341,-17.90267z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </p>
+                            <div class="summary-vise-list">
+                                <p class="title">Website</p>
+                                <p class="content">{{job?.website}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </div>
+
+</div>

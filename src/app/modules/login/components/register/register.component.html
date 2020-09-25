@@ -1,0 +1,227 @@
+<div class="container">
+    <svg class="close" matDialogClose (click)="close()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="register-title">Register Yourself</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+    <mat-vertical-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="personalInfo">
+            <form class="normal-form" [formGroup]="personalInfo">
+                <div class="control-containers">
+                    <ng-template matStepLabel>Personal Information</ng-template>
+
+                    <mat-form-field>
+                        <mat-label>FirstName</mat-label>
+                        <input type="text" formControlName="firstName" matInput placeholder="Ex. Avsar"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="personalInfo.get('firstName').hasError('required')">
+                            First Name is <strong>required</strong>
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>LastName</mat-label>
+                        <input type="text" formControlName="lastName" matInput placeholder="Ex. Vora"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="personalInfo.get('lastName').hasError('required')">
+                            Last Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Enrollment</mat-label>
+                        <input type="text" formControlName="enrollment" matInput placeholder="Ex. 180280116125"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="personalInfo.get('enrollment').hasError('required')">
+                            Enrollment is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="personalInfo.get('enrollment').hasError('pattern')">
+                            Enrollment should be only in Digits <strong>[0-9]</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <label style="margin-top: 16px;">Gender</label>
+                    <mat-radio-group aria-label="Gender" formControlName="gender">
+                        <mat-radio-button value="1">Male</mat-radio-button>
+                        <mat-radio-button value="2">Female</mat-radio-button>
+                        <mat-radio-button value="3">Other</mat-radio-button>
+                    </mat-radio-group>
+
+
+                    <mat-form-field>
+                        <mat-label>Bio</mat-label>
+                        <textarea matInput formControlName="bio" [errorStateMatcher]="matcher"></textarea>
+                    </mat-form-field>
+
+                    <div class="button-row">
+                        <button class="next" mat-raised-button matStepperNext color="primary">Next</button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="contactInfo">
+            <form class="normal-form" [formGroup]="contactInfo">
+                <div class="control-containers">
+                    <ng-template matStepLabel>Contact Details</ng-template>
+
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input type="email" formControlName="email" matInput placeholder="Ex. abc@gmail.com"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="contactInfo.get('email').hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="contactInfo.get('email').hasError('email')">
+                            Please Enter a valid Email.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Contact Number</mat-label>
+                        <span matPrefix>+91 &nbsp;</span>
+                        <input type="text" formControlName="phone" matInput placeholder="9732448399"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="contactInfo.get('phone').hasError('required')">
+                            Phone Number is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="contactInfo.get('phone').hasError('pattern')">
+                            Please Enter a Phone Number. <strong>Ex. 9732448399</strong>
+                        </mat-error>
+                        <mat-error
+                            *ngIf="contactInfo.get('phone').hasError('minlength') || contactInfo.get('phone').hasError('maxlength')">
+                            Postal Code Should be only 10 Digits.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Address 1</mat-label>
+                        <input type="text" #address1 formControlName="address1" matInput
+                            placeholder="Ex. Flat no. 203, shantipark, pedar road" [errorStateMatcher]="matcher">
+                        <mat-hint align="end">{{address1.value.length}} / 256</mat-hint>
+                        <mat-error *ngIf="contactInfo.get('address1').hasError('required')">
+                            Address is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="contactInfo.get('address1').hasError('maxlength')">
+                            Address should be less than <strong>256</strong> characters.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Address 2</mat-label>
+                        <input type="text" #address2 formControlName="address2" matInput
+                            placeholder="Ex. near saumya post office" [errorStateMatcher]="matcher">
+                        <mat-hint align="end">{{address2.value.length}} / 256</mat-hint>
+                        <mat-error *ngIf="contactInfo.get('address2').hasError('maxlength')">
+                            Address should be less than <strong>256</strong> characters.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>City</mat-label>
+
+                        <input type="text" formControlName="city" matInput placeholder="Ex. Surat"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="contactInfo.get('city').hasError('required')">
+                            City is <strong>required</strong>
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>State</mat-label>
+                        <input type="text" formControlName="state" matInput placeholder="Ex. Gujarat"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="contactInfo.get('state').hasError('required')">
+                            State is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Country</mat-label>
+                        <input type="text" formControlName="country" matInput placeholder="Ex. India"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="contactInfo.get('country').hasError('required')">
+                            Country is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Postal Code</mat-label>
+                        <input type="text" formControlName="postal" matInput placeholder="Ex. 394101"
+                            [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="contactInfo.get('postal').hasError('required')">
+                            Postal Code is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="contactInfo.get('postal').hasError('pattern')">
+                            Please Enter Valid Postal Code.
+                        </mat-error>
+                        <mat-error
+                            *ngIf="contactInfo.get('postal').hasError('minlength') || contactInfo.get('postal').hasError('maxlength')">
+                            Postal Code Should be only 6 Digits.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div class="button-row" style="margin-top: 16px;">
+                        <button mat-raised-button matStepperPrevious>Back</button>
+                        <button class="next" mat-raised-button matStepperNext color="primary">Next</button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="accountInfo">
+            <form class="normal-form" [formGroup]="accountInfo">
+                <div class="control-containers">
+                    <ng-template matStepLabel>Account Details</ng-template>
+
+                    <mat-form-field>
+                        <mat-label>Username</mat-label>
+                        <input type="text" formControlName="username" matInput placeholder="Ex. Name123"
+                            [errorStateMatcher]="matcher" (keyup)="username($event)">
+                        <mat-hint *ngIf="status === 'checking'" align="start">checking... </mat-hint>
+                        <mat-spinner *ngIf="status === 'checking'" diameter="15"></mat-spinner>
+                        <mat-error *ngIf="accountInfo.get('username').hasError('required')">
+                            Username is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="accountInfo.get('username').hasError('taken')">
+                            Username is Already <strong>taken.</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input type="password" formControlName="password" #password matInput
+                            placeholder="Ex. Xy@jf%009^" [errorStateMatcher]="matcher">
+                        <mat-hint align="end">{{password.value.length}} / 25</mat-hint>
+                        <mat-error *ngIf="accountInfo.get('password').hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="accountInfo.get('password').hasError('pattern')">
+                            Please Enter a Strong password with <strong>1)Password should be minimum 8 characters long.
+                                2) Atleast 1 capital & 1 small letter. 3) Atleast 1 special character & 1
+                                number.</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div class="button-row" style="margin-top: 16px;">
+                        <button class="next" mat-raised-button (click)="onSubmit()" color="primary">Register</button>
+                        <button mat-raised-button (click)="stepper.reset()" color="warn">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+    </mat-vertical-stepper>
+</div>

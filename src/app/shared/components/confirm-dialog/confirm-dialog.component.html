@@ -1,0 +1,12 @@
+<h1 mat-dialog-title id="confirm-title">
+    {{title}}
+</h1>
+
+<div mat-dialog-content id="confirm-msg">
+    <p>{{message}}</p>
+</div>
+
+<div mat-dialog-actions>
+    <button class="confirm-btn btn-no" mat-raised-button (click)="onDismiss()">No</button>
+    <button class="confirm-btn" mat-raised-button color="warn" (click)="onConfirm()">Yes</button>
+</div>

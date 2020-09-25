@@ -1,0 +1,120 @@
+<div class="container">
+    <svg class="close" matDialogClose (click)="close()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="login-title">Add Education Here</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+    <form class="normal-form" [formGroup]="educationForm">
+        <div class="control-containers">
+
+            <mat-form-field>
+                <mat-label>School</mat-label>
+                <input type="text" formControlName="collegeName" matInput
+                    placeholder="Ex. Lalbhai Dalptbhai college of engineering" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="educationForm.get('collegeName').hasError('required')">
+                    School is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Degree</mat-label>
+                <input type="text" formControlName="degree" matInput placeholder="Ex. B Tech"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="educationForm.get('degree').hasError('required')">
+                    Degree is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Field Of Study</mat-label>
+                <input type="text" formControlName="branch" matInput placeholder="Ex. Computer Science"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="educationForm.get('branch').hasError('required')">
+                    Field Of Study is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>City</mat-label>
+                <input type="text" formControlName="city" matInput placeholder="Ex. Tokyo"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="educationForm.get('city').hasError('required')">
+                    City is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>State</mat-label>
+                <input type="text" formControlName="state" matInput placeholder="Ex. Gujarat, Karnataka"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="educationForm.get('state').hasError('required')">
+                    State is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <input type="text" formControlName="country" matInput placeholder="Ex. India, USA"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="educationForm.get('country').hasError('required')">
+                    Country is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Start Date</mat-label>
+                            <input formControlName="join" matInput [matDatepicker]="picker1"
+                                placeholder="Ex. DD/MM/YYYY">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1 [startAt]="startDate"></mat-datepicker>
+                            <mat-error *ngIf="educationForm.get('join').hasError('required')">
+                                Start Date is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>End Date / Expected End Date</mat-label>
+                            <input formControlName="compelete" matInput [matDatepicker]="picker2"
+                                placeholder="Ex. DD/MM/YYYY">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2 [startAt]="startDate"></mat-datepicker>
+                            <mat-error *ngIf="educationForm.get('compelete').hasError('required')">
+                                End Date is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" [errorStateMatcher]="matcher"></textarea>
+            </mat-form-field>
+
+            <div>
+                <button class="btn-login" mat-raised-button color="primary" (click)="onSubmit()"
+                    type="submit">Add</button>
+            </div>
+
+        </div>
+    </form>
+</div>

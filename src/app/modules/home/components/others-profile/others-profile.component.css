@@ -1,0 +1,490 @@
+.banner {
+  height: 360px;
+}
+.banner-img {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6) 27%,
+    rgba(0, 0, 0, 0.2)
+  );
+  background-image: url(../../../../../assets/images/profile-bg.jpg);
+  background-size: cover;
+  height: 360px;
+  object-fit: cover;
+  width: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: 50% center;
+  transition: opacity 0.5s linear 0s;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  z-index: 3;
+  /* width: inherit; */
+}
+.bg-overlay {
+  background: linear-gradient(180deg, hsla(0, 0%, 96.1%, 0.2) 0, #f5f5f5);
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  left: 0px;
+  height: 370px;
+}
+.banner-img-overlay {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.5) 27%,
+    rgba(0, 0, 0, 0)
+  );
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 360px;
+  z-index: 1;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.bg {
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+  transform: scaleY(1.4);
+  filter: blur(5px);
+  animation: 1s cubic-bezier(0.19, 1, 0.22, 1) 0s 1 normal none running
+    position-fade-in;
+  height: 260px;
+  object-fit: cover;
+}
+.content {
+  position: relative;
+  height: 200px;
+  top: 252px;
+  width: 100%;
+  z-index: 3;
+}
+
+/* for user profile photo */
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  background: white;
+  position: relative;
+  left: 78px;
+  top: 0;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+}
+.profile-photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.image-edit-icon {
+  cursor: pointer;
+}
+.image-edit-icon g {
+  fill: dimgray;
+}
+.image-edit-icon:hover g {
+  fill: rgb(249, 170, 51);
+}
+/* for user profile photo ends*/
+.user-info {
+  margin-left: 110px;
+}
+.user-info #name {
+  position: relative;
+  top: 140px;
+  font-size: 40px;
+  font-family: "Helvetica New";
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+.user-info .uname-location {
+  margin: 0 0 12px;
+  top: 140px;
+  position: relative;
+  font-family: "VarelaRound";
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  color: dimgrey;
+  display: flex;
+}
+
+:host >>> .mat-grid-tile .mat-figure {
+  padding: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: block;
+}
+.side-bar-label {
+  font-size: 16px;
+  font-family: "VarelaRound";
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  color: dimgrey;
+}
+.seperator-work {
+  border: 1px solid;
+  margin: 0 5px;
+  width: 44%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  color: dimgrey;
+}
+.seperator-education {
+  border: 1px solid;
+  margin: 0 5px;
+  width: 64%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  color: dimgrey;
+}
+.label-left-icon {
+  margin-right: 5px;
+}
+.label-left-icon g {
+  fill: dimgrey;
+}
+
+/* for experience */
+.mat-accordion .mat-expansion-panel:last-of-type {
+  margin-bottom: 16px;
+}
+.logo {
+  width: 75px;
+  height: 75px;
+  /* background: black; */
+  background: url(../../../../../assets/images/logo.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+:host >>> .mat-content {
+  margin: 5px 0;
+}
+:host >>> .mat-expansion-panel-header {
+  padding: 0 16px;
+}
+:host >>> .mat-expansion-panel-header {
+  min-height: 90px;
+  height: auto;
+}
+:host >>> .mat-expansion-panel-header.mat-expanded {
+  min-height: 90px;
+  height: auto;
+}
+:host >>> .mat-expansion-panel-header-title {
+  flex-grow: 0;
+}
+.panel-title {
+  font-size: 18px;
+  font-family: "Helvetica New Bold";
+  width: 100%;
+}
+.company {
+  width: 100%;
+  font-size: 12px;
+  font-family: "VarelaRound";
+  color: black;
+}
+:host >>> .mat-expansion-panel-header-description {
+  flex-direction: column;
+}
+.time-place {
+  font-size: 12px;
+  font-family: "Objektiv-Regular";
+}
+:host >>> .mat-expansion-panel-body {
+  margin-top: 10px;
+  font-family: "Objektiv-Regular";
+}
+.label-right-icon {
+  cursor: pointer;
+}
+.label-right-icon g {
+  fill: dimgrey;
+}
+.label-right-icon:hover g {
+  fill: rgb(249, 170, 51);
+}
+.panel-edit g {
+  fill: dimgrey;
+}
+.panel-edit .left-side-edit:hover g {
+  fill: rgb(249, 170, 51);
+}
+
+.left-side-remove {
+  margin-right: -20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  float: right;
+}
+.left-side-remove:hover g {
+  fill: rgb(249, 170, 51);
+}
+/* for skills */
+.skills {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 16px;
+  border-radius: 8px;
+}
+.star-skills,
+.other-skills {
+  font-size: 16px;
+  font-family: "Helvetica New Bold";
+}
+.star-skill-item,
+.other-skill-item {
+  font-size: 16px;
+  height: 38px;
+  font-family: "Objektiv-Regular";
+}
+
+/* tabs content */
+.tab-box {
+  height: auto;
+  width: auto;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: white;
+}
+:host >>> .tab-label .mat-tab-label-content {
+  font-family: "Helvetica New";
+  font-size: 18px;
+}
+:host >>> .mat-tab-label {
+  color: black;
+}
+:host >>> .mat-tab-label .mat-tab-label-content g {
+  font-family: "Helvetica New";
+  font-size: 18px;
+  fill: black;
+}
+:host >>> .mat-tab-label-active .mat-tab-label-content g {
+  fill: rgb(249, 170, 51);
+}
+.tab-label-icon {
+  margin-right: 5px;
+}
+.tab-content-title {
+  margin-right: 5px;
+  font-size: 20px;
+  font-family: "VarelaRound";
+  color: dimgrey;
+}
+.tab-title-add-icon {
+  cursor: pointer;
+}
+.tab-title-add-icon:hover g {
+  fill: rgb(249, 170, 51);
+}
+.tab-content-key {
+  color: dimgrey;
+  font-size: 16px;
+  font-family: "Helvetica New Bold";
+}
+.tab-content-value {
+  font-size: 16px;
+  font-family: "Objektiv-Regular";
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+:host >>> .mat-list-base .mat-list-item {
+  min-height: 38px;
+  height: auto;
+}
+:host >>> .mat-list-base .mat-list-item .mat-list-item-content {
+  align-items: flex-start;
+}
+/* for stop text overflow in x */
+:host >>> .mat-expansion-panel-body {
+  display: block;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* for feed posts */
+.my-post-header {
+  display: flex;
+  margin: 16px 0;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.seperator-post {
+  content: "";
+  width: 85%;
+  border: 1px solid dimgrey;
+  height: 0.1px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  color: dimgrey;
+}
+.feed-post {
+  margin: 16px;
+  border-radius: 8px !important;
+}
+.author-profile {
+  width: 50px !important;
+  border-radius: 50% !important;
+  height: 50px;
+  object-fit: cover;
+}
+.author-name {
+  font-size: 1.14rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #464855;
+  font-family: "VarelaRound";
+}
+.post-time {
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  color: #464855;
+  font-family: "VarelaRound";
+}
+.post-description {
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #6b6f82;
+  font-family: "Objektiv-Regular";
+}
+.like-profile-img {
+  border-radius: 50% !important;
+  z-index: 1;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 10px 0 rgba(107, 111, 130, 0.3);
+  position: relative;
+  width: 36px;
+  height: 36px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  margin-left: -10px;
+}
+.extra-like {
+  border-radius: 50% !important;
+  z-index: 1;
+  color: #fff;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.8;
+  margin-left: -10px;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+.pull-up {
+  transition: all 0.25s ease !important;
+  border-radius: 50%;
+  background-color: white;
+}
+.pull-up:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 24px rgba(62, 57, 107, 0.2);
+  z-index: 30;
+}
+.extra-like-profile {
+  background: rgba(255, 255, 255, 0.8);
+  color: #6b6f82;
+  margin-bottom: 2px;
+  z-index: 2;
+}
+.like-icon:hover {
+  cursor: pointer;
+}
+.comment-icon:hover {
+  cursor: pointer;
+}
+/* for expansion panel */
+.feed-post .mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+/* for comment text area */
+/* input color class */
+:host ::ng-deep input.mat-input-element {
+  color: #484a4c;
+}
+
+/* Change label color on focused */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: rgb(249, 170, 51) !important;
+}
+
+/* underline border color on focused */
+:host ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+  background-color: rgb(249, 170, 51) !important;
+}
+:host ::ng-deep .mat-form-field-infix {
+  font-family: "VarelaRound";
+}
+:host ::ng-deep input.mat-input-element {
+  font-family: "Objektiv-Regular";
+}
+
+:host
+  ::ng-deep
+  .mat-form-field-appearance-legacy
+  .mat-form-field-subscript-wrapper {
+  margin: 10px 0;
+  font-size: 14px;
+}
+:host ::ng-deep .mat-form-field {
+  font-size: 16px;
+  width: 95%;
+}
+/* for style of expansion panel conetent */
+.add-comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-list {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+  gap: 20px;
+}
+.comment-list .one-comment .name {
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #464855;
+  font-family: "VarelaRound";
+}
+.comment-list .one-comment p {
+  font-family: "Objektiv-Regular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #6b6f82;
+}

@@ -1,0 +1,127 @@
+<div class="container">
+    <svg class="close" matDialogClose (click)="close()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="login-title">Update Here</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+    <form class="normal-form" [formGroup]="contactForm">
+        <div class="control-containers">
+
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input type="email" formControlName="email" matInput placeholder="Ex. abc@gmail.com"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="contactForm.get('email').hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="contactForm.get('email').hasError('email')">
+                    Please Enter a valid Email.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Contact Number</mat-label>
+                <span matPrefix>+91 &nbsp;</span>
+                <input type="text" formControlName="phone" matInput placeholder="9732448399"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="contactForm.get('phone').hasError('required')">
+                    Phone Number is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="contactForm.get('phone').hasError('pattern')">
+                    Please Enter a Phone Number. <strong>Ex. 9732448399</strong>
+                </mat-error>
+                <mat-error
+                    *ngIf="contactForm.get('phone').hasError('minlength') || contactForm.get('phone').hasError('maxlength')">
+                    Postal Code Should be only 10 Digits.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Address 1</mat-label>
+                <input type="text" #address1 formControlName="address1" matInput
+                    placeholder="Ex. Flat no. 203, shantipark, pedar road" [errorStateMatcher]="matcher">
+                <mat-hint align="end">{{address1.value.length}} / 256</mat-hint>
+                <mat-error *ngIf="contactForm.get('address1').hasError('required')">
+                    Address is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="contactForm.get('address1').hasError('maxlength')">
+                    Address should be less than <strong>256</strong> characters.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Address 2</mat-label>
+                <input type="text" #address2 formControlName="address2" matInput
+                    placeholder="Ex. near saumya post office" [errorStateMatcher]="matcher">
+                <mat-hint align="end">{{address2.value.length}} / 256</mat-hint>
+                <mat-error *ngIf="contactForm.get('address2').hasError('maxlength')">
+                    Address should be less than <strong>256</strong> characters.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>City</mat-label>
+
+                <input type="text" formControlName="city" matInput placeholder="Ex. Surat"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="contactForm.get('city').hasError('required')">
+                    City is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>State</mat-label>
+                <input type="text" formControlName="state" matInput placeholder="Ex. Gujarat"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="contactForm.get('state').hasError('required')">
+                    State is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <input type="text" formControlName="country" matInput placeholder="Ex. India"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="contactForm.get('country').hasError('required')">
+                    Country is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Postal Code</mat-label>
+                <input type="text" formControlName="postal" matInput placeholder="Ex. 394101"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="contactForm.get('postal').hasError('required')">
+                    Postal Code is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="contactForm.get('postal').hasError('pattern')">
+                    Please Enter Valid Postal Code.
+                </mat-error>
+                <mat-error
+                    *ngIf="contactForm.get('postal').hasError('minlength') || contactForm.get('postal').hasError('maxlength')">
+                    Postal Code Should be only 6 Digits.
+                </mat-error>
+            </mat-form-field>
+
+            <div>
+                <button class="btn-login" mat-raised-button color="primary" (click)="onSubmit()"
+                    type="submit">Update</button>
+            </div>
+
+        </div>
+    </form>
+</div>

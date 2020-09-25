@@ -1,0 +1,15 @@
+.confirm-btn {
+  margin-right: 20px;
+  outline: none;
+}
+.btn-no {
+  color: rgb(249, 170, 51);
+  background-color: wheat;
+}
+
+#confirm-title {
+  font-family: "Helvetica New Bold";
+}
+#confirm-msg {
+  font-family: "Objektiv-Regular";
+}

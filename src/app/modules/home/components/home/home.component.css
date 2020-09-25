@@ -1,0 +1,142 @@
+/* navbar css end here */
+
+.seperator {
+  height: 2px;
+  color: #232f34;
+  margin-bottom: 0px;
+  margin-top: 8px;
+  border-top: 0;
+}
+
+.slider {
+  overflow: hidden;
+}
+.md-basic-image {
+  object-fit: cover;
+  max-width: 100%;
+  width: auto;
+  margin-top: 16px;
+  height: auto !important;
+}
+.mat-card-image {
+  width: calc(100% + 32px);
+  object-fit: cover;
+  height: 240px;
+  margin: 0 -16px 16px -16px;
+}
+.mat-card-content {
+  margin-top: 20px;
+  color: white;
+}
+.example-card {
+  width: 356px;
+  background-color: rgb(74, 101, 114);
+  border-radius: 15px;
+  height: 480px;
+  color: white;
+}
+
+::ng-deep.mat-tab-label {
+  min-width: 97px !important;
+  padding: 3px !important;
+  margin: 3px !important;
+  color: white;
+}
+::ng-deep.mat-tab-label-active {
+  min-width: 97px !important;
+  padding: 3px !important;
+  margin: 3px !important;
+  color: rgb(249, 170, 51);
+}
+
+.mat-stroked-button {
+  background-color: rgb(249, 170, 51);
+  color: white;
+  outline: none;
+}
+.mat-card-header {
+  color: white;
+  font-family: "Helvetica New Bold";
+}
+.mat-card-subtitle {
+  color: white;
+  font-family: "Helvetica New";
+}
+::ng-deep.mat-tab-header-pagination-chevron {
+  border-color: white;
+}
+::ng-deep.mat-tab-header-pagination-disabled
+  .mat-tab-header-pagination-chevron {
+  border-color: white;
+}
+
+.cards {
+  background: url(../../../../../assets/images/bg2.png) no-repeat;
+  background-position: left top;
+  background-size: 100% auto;
+}
+
+.gallary {
+  background: url(../../../../../assets/images/bg-quote.png) no-repeat;
+  background-position: left 24%;
+  padding: 0 0 10%;
+  background-size: 60% auto;
+}
+.gallary .gallary-inner div {
+  padding: 4px;
+}
+.gallary .gallary-inner div div img {
+  border: 4px solid white;
+  opacity: 0.9;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  transition: 0.5s;
+}
+.gallary .gallary-inner div div img:hover {
+  transform: scale(1.1);
+  background: #ff800a;
+  box-shadow: 2px 2px 2px #000;
+  z-index: 2;
+  opacity: 1;
+  cursor: pointer;
+}
+.gallary-heading {
+  color: rgb(74, 101, 114);
+  text-align: center;
+  font-size: 60px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-family: "VarelaRound", sans-serif;
+}
+
+/* 
+job css starts here */
+.job-title h3 {
+  /* font: 400 16px/28px Roboto, "Helvetica Neue", sans-serif; */
+  letter-spacing: normal;
+  font-family: "VarelaRound", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+}
+.job-title h6 {
+  font-family: "Helvetica New Bold", sans-serif;
+  color: #8997a7;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0;
+  outline: none;
+}
+.job-title h6:hover {
+  color: rgb(249, 170, 51);
+  cursor: pointer;
+}
+.job-row {
+  margin-right: -15px;
+  margin-left: -15px;
+  padding: 15px 0;
+}
+/* 
+job css ends here */

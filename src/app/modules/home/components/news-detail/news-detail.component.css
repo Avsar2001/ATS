@@ -1,0 +1,45 @@
+:host >>> .page {
+  background: white;
+  padding: 16px;
+}
+.header {
+  display: inline-block;
+  max-width: 900px;
+  margin: 16px 0;
+}
+
+.news-title {
+  color: #1a2852;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 1.1;
+  margin-bottom: 0.9rem;
+  font-family: "Helvetica New Bold";
+}
+.news-summary {
+  color: #1a2852;
+  font-size: 20px;
+  line-height: 1.4;
+  font-family: "VarelaRound";
+}
+.share {
+  padding: 10px 0;
+  border-bottom: 1px solid #c5c5c5;
+  display: block;
+  margin: 20px 0;
+  font-size: 13px;
+}
+.share img {
+  margin-right: 10px;
+}
+.share p {
+  display: inline-block;
+  font-size: 15px;
+  color: #c5c5c5;
+  text-transform: uppercase;
+}
+.description {
+  color: #333;
+  margin-bottom: 30px;
+  font-family: "Objektiv-Regular";
+}

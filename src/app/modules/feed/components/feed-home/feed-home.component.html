@@ -1,0 +1,436 @@
+<div class="section feed-page">
+    <div class="row">
+        <!-- for left side events tabs -->
+        <div class="events col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title events-title">Events</h5>
+                    <hr>
+                    <div class="mt-2" style="margin-top: 1.5rem !important;"
+                        *ngFor="let event of events | async; let e = index;">
+                        <h5 class="event-title card-title mb-1">{{event.t | titlecase}}</h5>
+                        <p class="event-description font-small-3">
+                            {{(event?.description.length>150)? (event.description | slice:0:150)+'...':(event.description)}}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- for middle posts tabs -->
+
+        <div class="feed col-lg-6 col-md-6 col-sm-12">
+
+            <!-- create post -->
+            <div class="card shadow">
+                <div class="catd-body">
+                    <div class="feed-tabs">
+                        <div class="blog-title">
+                            <p style="margin: 0;">Blog Post</p>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <!-- if image uploads -->
+                    <div *ngIf="postPhotoUrl" class="col-sm-12 px-2 pb-2"
+                        style="padding: 0 1.5rem 1.5rem 1.5rem !important; margin-top: 16px !important;">
+                        <img [src]="postPhotoUrl" alt="" style="width: 100%; object-fit: cover;" class="img-fluid">
+                    </div>
+
+                    <div class="write-post">
+                        <div class="form-group">
+                            <form [formGroup]="postContentForm">
+                                <textarea style="height: 106px;" formControlName="postContent"
+                                    placeholder="Share what you are thinking here..."
+                                    class="form-control border-0 post-content" rows="5"></textarea>
+                            </form>
+                        </div>
+                        <hr class="m-0">
+                        <div class="row px-1" style="align-items: center !important; height: 68px;">
+                            <input type="file" (change)="onPostPhotoSelected($event)" #postPhotoInput hidden="true">
+                            <div class="col-6 pt-2" style="height: 100%; padding-top: 1.5rem !important;">
+                                <svg (click)="postPhotoInput.click()" class="img-icon"
+                                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#f9aa33">
+                                            <path
+                                                d="M10.75,26.875v107.5h26.875v27.37891l8.73438,-7.05469l25.36328,-20.32422h89.52734v-107.5zM21.5,37.625h129v86h-82.47266l-1.51172,1.17578l-18.14062,14.44531v-15.62109h-26.875zM123.625,53.75c-5.9419,0 -10.75,4.8081 -10.75,10.75c0,5.9419 4.8081,10.75 10.75,10.75c5.9419,0 10.75,-4.8081 10.75,-10.75c0,-5.9419 -4.8081,-10.75 -10.75,-10.75zM63.99609,66.01172l-30.23437,30.23438l7.72656,7.55859l22.50781,-22.50781l26.875,26.875l3.69531,-3.86328l11.25391,-11.25391l13.94141,13.94141l7.72656,-7.55859l-17.80469,-17.80469l-3.86328,-3.69531l-15.11719,15.11719l-23.01172,-23.17969z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="col-6 pt-1"
+                                style="text-align: right; height: 100%; padding-top: 1rem !important;">
+                                <button type="button" (click)="addPost()"
+                                    class="btn btn-min-width btn-glow mr-1 mb-1 pull-right post-button">Post
+                                    Status</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- user post for demo-->
+
+            <!-- <div class="card shadow feed-post">
+                <div>
+                    <div class="row p-2" style="padding: 1.5rem !important;">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-lg-4 col-3">
+                                    <img src="../../../../../assets/images/profile2.jpg" alt=""
+                                        class="img-fluid rounded-circle width-50 author-profile">
+                                </div>
+                                <div class="col-lg-8 col-7 p-0">
+                                    <h5 class="m-0 author-name">Elaine Dreyfuss</h5>
+                                    <p class="post-time">2 hours ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="write-post">
+
+                       
+                        <div class="col-sm-12 px-2 pb-2" style="padding: 0 1.5rem 1.5rem 1.5rem !important;">
+                            <img src="../../../../../assets/images/No_Image.jpg" alt=""
+                                style="width: 100%; object-fit: cover;" class="img-fluid">
+                        </div>
+
+                        <div class="col-sm-12 px-2" style="padding: 0 1.5rem 0 1.5rem !important;">
+                            <p class="post-description">When searching for videos of a different singer, Scooter Braun,
+                                a former marketing
+                                executive of So So Def Recordings, clicked on one of Bieber's 2007 videos by</p>
+                        </div>
+                        <hr class="m-0">
+                        <div class="row p-1" style="padding: 1rem !important;">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4 pr-0">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+                                                height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                    font-weight="none" font-size="none" text-anchor="none"
+                                                    style="mix-blend-mode: normal">
+                                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                                    <g fill="#f9aa33">
+                                                        <path
+                                                            d="M118.25,21.5c-20.7475,0 -32.25,14.97833 -32.25,14.97833c0,0 -11.5025,-14.97833 -32.25,-14.97833c-21.77233,0 -39.41667,17.64433 -39.41667,39.41667c0,29.89217 35.20267,58.85983 45.01383,68.01167c11.30183,10.535 26.65283,24.08 26.65283,24.08c0,0 15.351,-13.545 26.65283,-24.08c9.81117,-9.15183 45.01383,-38.1195 45.01383,-68.01167c0,-21.77233 -17.64433,-39.41667 -39.41667,-39.41667zM106.1455,115.455c-1.2685,1.14667 -2.37217,2.14283 -3.268,2.98133c-5.38217,5.01667 -11.74617,10.7715 -16.8775,15.3725c-5.13133,-4.601 -11.5025,-10.363 -16.8775,-15.3725c-0.903,-0.8385 -2.00667,-1.84183 -3.268,-2.98133c-10.17667,-9.19483 -37.18783,-33.61883 -37.18783,-54.53833c0,-13.83167 11.25167,-25.08333 25.08333,-25.08333c13.0935,0 20.683,9.1375 20.88367,9.374l11.36633,12.126l11.36633,-12.126c0.07167,-0.09317 7.79017,-9.374 20.88367,-9.374c13.83167,0 25.08333,11.25167 25.08333,25.08333c0,20.9195 -27.01117,45.3435 -37.18783,54.53833z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </svg> 120
+                                        </span>
+                                    </div>
+                                    <div class="col-8 pl-0">
+                                        <ul class="list-unstyled users-list m-0" style="display: flex;">
+                                            <li class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle like-profile-img"
+                                                    src="../../../../../assets/images/profile2.jpg" alt="Avatar">
+                                            </li>
+                                            <li class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle like-profile-img"
+                                                    src="../../../../../assets/images/profile2.jpg" alt="Avatar">
+                                            </li>
+                                            <li class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle like-profile-img"
+                                                    src="../../../../../assets/images/profile2.jpg" alt="Avatar">
+                                            </li>
+                                            <li class="avatar avatar-sm extra-like">
+                                                <span class="badge badge-info extra-like-profile">+4 more</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="pull-right" style="float: right !important;">
+                                    <span class="pr-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                                            viewBox="0 0 172 172" style=" fill:#000000;">
+                                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                font-weight="none" font-size="none" text-anchor="none"
+                                                style="mix-blend-mode: normal">
+                                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                                <g fill="#f9aa33">
+                                                    <path
+                                                        d="M26.875,21.5c-8.86035,0 -16.125,7.26465 -16.125,16.125v86c0,8.86035 7.26465,16.125 16.125,16.125h16.125v26.16114l39.2627,-26.16114h52.1123c8.86035,0 16.125,-7.26465 16.125,-16.125v-86c0,-8.86035 -7.26465,-16.125 -16.125,-16.125zM26.875,32.25h107.5c3.02344,0 5.375,2.35156 5.375,5.375v86c0,3.02344 -2.35156,5.375 -5.375,5.375h-55.3877l-25.2373,16.83886v-16.83886h-26.875c-3.02344,0 -5.375,-2.35156 -5.375,-5.375v-86c0,-3.02344 2.35156,-5.375 5.375,-5.375zM43,75.25v10.75h10.75v-10.75zM75.25,75.25v10.75h10.75v-10.75zM107.5,75.25v10.75h10.75v-10.75z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg> 44
+                                    </span>
+                                    <span class="pr-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                                            viewBox="0 0 172 172" style=" fill:#000000;">
+                                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                font-weight="none" font-size="none" text-anchor="none"
+                                                style="mix-blend-mode: normal">
+                                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                                <g fill="#f9aa33">
+                                                    <path
+                                                        d="M99.33,37.84c-1.73344,0.215 -3.02344,1.69313 -3.01,3.44v24.295c-39.60031,1.20938 -60.9525,22.17188 -71.4875,43c-10.68281,21.11031 -11.05906,41.69656 -11.0725,42.355v0.215v0.215c-0.05375,1.89469 1.43781,3.49375 3.3325,3.5475c1.89469,0.05375 3.49375,-1.43781 3.5475,-3.3325v-0.215c0.02688,-0.3225 0.79281,-10.73656 10.6425,-21.8225c9.675,-10.87094 28.55469,-21.83594 65.0375,-22.575v23.7575c0,1.31688 0.7525,2.52625 1.94844,3.10406c1.19594,0.57781 2.60688,0.41656 3.64156,-0.41656l55.04,-44.72c0.81969,-0.65844 1.29,-1.63937 1.29,-2.6875c0,-1.04812 -0.47031,-2.02906 -1.29,-2.6875l-55.04,-44.72c-0.72562,-0.59125 -1.65281,-0.86 -2.58,-0.7525zM103.2,48.4825l46.1175,37.5175l-46.1175,37.5175v-20.3175c0,-1.89469 -1.54531,-3.44 -3.44,-3.44c-40.43344,0 -62.22906,12.42969 -73.6375,25.2625c-0.43,0.48375 -0.67187,0.91375 -1.075,1.3975c1.45125,-4.73 3.35938,-9.7825 5.9125,-14.835c10.03781,-19.83375 29.19969,-39.345 68.8,-39.345c1.89469,0 3.44,-1.54531 3.44,-3.44z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg> 23
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- user posts from DB -->
+            <div class="card shadow feed-post" *ngFor="let p of feed | async; let i = index;">
+                <div class="catd-body">
+                    <div class="row p-2" style="padding: 1.5rem !important;">
+                        <div class="col-sm-6">
+                            <div class="row" *ngFor="let postAuthor of p.postAuthor | async">
+                                <div class="col-lg-4 col-3">
+                                    <img [src]="postAuthor.profileImage ? postAuthor.profileImage : './../../../../../assets/images/default-profile-picture1.jpg' "
+                                        alt="" class="img-fluid rounded-circle width-50 author-profile">
+                                </div>
+                                <div class="col-lg-8 col-7 p-0">
+                                    <h5 class="m-0 author-name">
+                                        {{postAuthor.personal.firstName + " " + postAuthor.personal.lastName}}</h5>
+                                    <p class="post-time">
+                                        <span>
+                                            {{p.createdTime | dateAgo:p.createdDate}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- for right side 3 dot more option -->
+                        <!-- <div class="col-sm-6">
+                            <i class="ft-more-vertical pull-right"></i>
+                        </div> -->
+                    </div>
+                    <div class="write-post">
+
+                        <!-- if image uploads -->
+                        <div *ngIf="p.postPhoto" class="col-sm-12 px-2 pb-2"
+                            style="padding: 0 1.5rem 1.5rem 1.5rem !important;">
+                            <img [src]="p.postPhoto" alt="" style="width: 100%; object-fit: cover;" class="img-fluid">
+                        </div>
+
+                        <div class="col-sm-12 px-2" style="padding: 0 1.5rem 0 1.5rem !important;">
+                            <p class="post-description">{{p.content}}</p>
+                        </div>
+                        <hr class="m-0">
+                        <div class="row p-1" style="padding: 1rem !important;">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4 pr-0">
+                                        <span>
+                                            <!-- to give fast view output 2nd click method called -->
+                                            <svg (click)="giveLike(p.id)" (click)="p.like.push(sessionService.getId())"
+                                                class="like-icon" *ngIf="p.like.indexOf(sessionService.getId()) == -1"
+                                                xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+                                                height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                    font-weight="none" font-size="none" text-anchor="none"
+                                                    style="mix-blend-mode: normal">
+                                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                                    <g fill="#f9aa33">
+                                                        <path
+                                                            d="M118.25,21.5c-20.7475,0 -32.25,14.97833 -32.25,14.97833c0,0 -11.5025,-14.97833 -32.25,-14.97833c-21.77233,0 -39.41667,17.64433 -39.41667,39.41667c0,29.89217 35.20267,58.85983 45.01383,68.01167c11.30183,10.535 26.65283,24.08 26.65283,24.08c0,0 15.351,-13.545 26.65283,-24.08c9.81117,-9.15183 45.01383,-38.1195 45.01383,-68.01167c0,-21.77233 -17.64433,-39.41667 -39.41667,-39.41667zM106.1455,115.455c-1.2685,1.14667 -2.37217,2.14283 -3.268,2.98133c-5.38217,5.01667 -11.74617,10.7715 -16.8775,15.3725c-5.13133,-4.601 -11.5025,-10.363 -16.8775,-15.3725c-0.903,-0.8385 -2.00667,-1.84183 -3.268,-2.98133c-10.17667,-9.19483 -37.18783,-33.61883 -37.18783,-54.53833c0,-13.83167 11.25167,-25.08333 25.08333,-25.08333c13.0935,0 20.683,9.1375 20.88367,9.374l11.36633,12.126l11.36633,-12.126c0.07167,-0.09317 7.79017,-9.374 20.88367,-9.374c13.83167,0 25.08333,11.25167 25.08333,25.08333c0,20.9195 -27.01117,45.3435 -37.18783,54.53833z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <!-- to give fast view output 2nd click method called -->
+                                            <svg (click)="giveLike(p.id)"
+                                                (click)="p.like.splice(p.like.indexOf(sessionService.getId()),1)"
+                                                class="like-icon" *ngIf="p.like.indexOf(sessionService.getId()) != -1"
+                                                xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+                                                height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                    font-weight="none" font-size="none" text-anchor="none"
+                                                    style="mix-blend-mode: normal">
+                                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                                    <g fill="#f9aa33">
+                                                        <path
+                                                            d="M118.25,21.5c-20.7475,0 -32.25,14.97833 -32.25,14.97833c0,0 -11.5025,-14.97833 -32.25,-14.97833c-21.77233,0 -39.41667,17.64433 -39.41667,39.41667c0,29.89217 35.20267,58.85983 45.01383,68.01167c11.30183,10.535 26.65283,24.08 26.65283,24.08c0,0 15.351,-13.545 26.65283,-24.08c9.81117,-9.15183 45.01383,-38.1195 45.01383,-68.01167c0,-21.77233 -17.64433,-39.41667 -39.41667,-39.41667z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </svg> {{p.like.length}}
+                                        </span>
+                                    </div>
+                                    <div class="col-8 pl-0">
+                                        <ul class="list-unstyled users-list m-0" style="display: flex;"
+                                            *ngIf="p.like.length >= 1">
+                                            <li *ngFor="let l of p.firstThreeUserliked; let y = index;"
+                                                class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle like-profile-img"
+                                                    [src]="l.profileImage ? l.profileImage : './../../../../../assets/images/default-profile-picture1.jpg' "
+                                                    alt="Avatar">
+                                            </li>
+
+                                            <li class="avatar avatar-sm extra-like" *ngIf="p.like.length >= 4">
+                                                <span class="badge badge-info extra-like-profile">+{{p.like.length - 3}}
+                                                    more</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="pull-right" style="float: right !important;">
+                                    <span class="pr-1 comment-icon">
+                                        <svg (click)="openComment(i)" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                            width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                font-weight="none" font-size="none" text-anchor="none"
+                                                style="mix-blend-mode: normal">
+                                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                                <g fill="#f9aa33">
+                                                    <path
+                                                        d="M26.875,21.5c-8.86035,0 -16.125,7.26465 -16.125,16.125v86c0,8.86035 7.26465,16.125 16.125,16.125h16.125v26.16114l39.2627,-26.16114h52.1123c8.86035,0 16.125,-7.26465 16.125,-16.125v-86c0,-8.86035 -7.26465,-16.125 -16.125,-16.125zM26.875,32.25h107.5c3.02344,0 5.375,2.35156 5.375,5.375v86c0,3.02344 -2.35156,5.375 -5.375,5.375h-55.3877l-25.2373,16.83886v-16.83886h-26.875c-3.02344,0 -5.375,-2.35156 -5.375,-5.375v-86c0,-3.02344 2.35156,-5.375 5.375,-5.375zM43,75.25v10.75h10.75v-10.75zM75.25,75.25v10.75h10.75v-10.75zM107.5,75.25v10.75h10.75v-10.75z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg> 56
+                                    </span>
+                                    <!-- for share icon
+                                        
+                                        <span class="pr-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                                            viewBox="0 0 172 172" style=" fill:#000000;">
+                                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                font-weight="none" font-size="none" text-anchor="none"
+                                                style="mix-blend-mode: normal">
+                                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                                <g fill="#f9aa33">
+                                                    <path
+                                                        d="M99.33,37.84c-1.73344,0.215 -3.02344,1.69313 -3.01,3.44v24.295c-39.60031,1.20938 -60.9525,22.17188 -71.4875,43c-10.68281,21.11031 -11.05906,41.69656 -11.0725,42.355v0.215v0.215c-0.05375,1.89469 1.43781,3.49375 3.3325,3.5475c1.89469,0.05375 3.49375,-1.43781 3.5475,-3.3325v-0.215c0.02688,-0.3225 0.79281,-10.73656 10.6425,-21.8225c9.675,-10.87094 28.55469,-21.83594 65.0375,-22.575v23.7575c0,1.31688 0.7525,2.52625 1.94844,3.10406c1.19594,0.57781 2.60688,0.41656 3.64156,-0.41656l55.04,-44.72c0.81969,-0.65844 1.29,-1.63937 1.29,-2.6875c0,-1.04812 -0.47031,-2.02906 -1.29,-2.6875l-55.04,-44.72c-0.72562,-0.59125 -1.65281,-0.86 -2.58,-0.7525zM103.2,48.4825l46.1175,37.5175l-46.1175,37.5175v-20.3175c0,-1.89469 -1.54531,-3.44 -3.44,-3.44c-40.43344,0 -62.22906,12.42969 -73.6375,25.2625c-0.43,0.48375 -0.67187,0.91375 -1.075,1.3975c1.45125,-4.73 3.35938,-9.7825 5.9125,-14.835c10.03781,-19.83375 29.19969,-39.345 68.8,-39.345c1.89469,0 3.44,-1.54531 3.44,-3.44z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg> {{p.share}}
+                                    </span> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- for comment section -->
+                        <mat-accordion>
+                            <mat-expansion-panel #expansion>
+
+                                <ng-template matExpansionPanelContent>
+                                    <div class="add-comment">
+                                        <form style="width: 100%;" [formGroup]="commentForm">
+                                            <mat-form-field>
+                                                <mat-label>Comment</mat-label>
+                                                <textarea matInput formControlName="commentField"
+                                                    placeholder="Write Your Thoughts Here..."></textarea>
+
+                                            </mat-form-field>
+                                        </form>
+                                        <div class="comment-icon">
+                                            <svg (click)="p.comments$ = addComment(p.id, p.comments$)"
+                                                xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+                                                height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                    font-weight="none" font-size="none" text-anchor="none"
+                                                    style="mix-blend-mode: normal">
+                                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                                    <g fill="#f9aa33">
+                                                        <path
+                                                            d="M86,14.33333c-39.517,0 -71.66667,28.93183 -71.66667,64.5c0,37.69667 36.11283,68.29833 78.83333,64.156v22.5105l11.03667,-7.08067c8.11267,-5.21017 48.7835,-33.18167 53.062,-72.756c0.25083,-2.2575 0.40133,-4.52933 0.40133,-6.82983c0,-35.56817 -32.14967,-64.5 -71.66667,-64.5zM93.16667,107.5v-21.5h-43v-14.33333h43v-21.5l28.66667,28.66667z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div *ngFor="let comment of p.comments$ | async; let j = index;">
+                                        <div class="comment-list"
+                                            *ngFor="let commentAuthor of comment.commentAuthor$ | async; let b = index;">
+                                            <div class="avtar">
+                                                <img style="margin-left: 0; height: 40px; width: 40px;"
+                                                    class="media-object pull-up rounded-circle like-profile-img"
+                                                    [src]="commentAuthor.profileImage ? commentAuthor.profileImage : './../../../../../assets/images/default-profile-picture1.jpg' "
+                                                    alt="Avatar">
+                                            </div>
+
+                                            <div class="content">
+                                                <div class="name">
+                                                    {{commentAuthor.personal.firstName + " " + commentAuthor.personal.lastName}}
+                                                    -
+                                                    {{comment.commentTime | dateAgo:comment.commentDate}}</div>
+                                                <p>{{comment.comment}}</p>
+                                            </div>
+
+                                        </div>
+
+                                        <hr>
+                                    </div>
+
+                                </ng-template>
+
+                            </mat-expansion-panel>
+                        </mat-accordion>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- for right side news tabs -->
+
+        <div class="events col-lg-3 col-md-12 col-sm-12">
+
+            <div class="card text-white news-card shadow mb-3" *ngFor="let n of news | async; let k = index;">
+                <div class="card-body">
+                    <!-- <i class="ft-award white float-right font-medium-5"></i> -->
+                    <svg class="float-right font-medium-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="21"
+                        height="21" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                            <g fill="#ffffff">
+                                <path
+                                    d="M21.5,21.5v28.66667h129v-28.66667zM21.5,71.66667v28.66667h129v-28.66667zM21.5,121.83333v28.66667h129v-28.66667z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    <p class="mb-25 date">{{n.createdOn | date}}</p>
+                    <h3 class="white news-title">{{n.title | titlecase}}</h3>
+                    <p class="card-text news-description">{{n.summary}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

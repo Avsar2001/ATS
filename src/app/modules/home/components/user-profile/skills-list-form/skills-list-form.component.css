@@ -1,0 +1,100 @@
+.normal-form {
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.control-containers {
+  width: 100%;
+  padding: 5%;
+}
+.control-containers > * {
+  width: 100%;
+}
+.login-title {
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: rgb(249, 170, 51);
+  font-size: 30px;
+}
+:host ::ng-deep .mat-toolbar {
+  background-color: white;
+}
+/* close icon */
+.close {
+  top: -20px;
+  position: relative;
+  left: 30px;
+  color: black;
+}
+.close:hover {
+  color: rgb(249, 170, 51) !important;
+}
+/* for login header */
+.mat-toolbar-single-row {
+  font-family: "Helvetica New Bold";
+  border-radius: 5px;
+}
+/* for login button */
+.btn-login {
+  color: rgb(249, 170, 51);
+  outline: none;
+  background-color: wheat;
+  margin: 16px 0;
+  width: 100%;
+}
+/* input color class */
+:host ::ng-deep input.mat-input-element {
+  color: #484a4c;
+}
+
+/* Change label color on focused */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: rgb(249, 170, 51) !important;
+}
+
+/* underline border color on focused */
+:host ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+  background-color: rgb(249, 170, 51) !important;
+}
+/* for mat input field */
+:host ::ng-deep .mat-form-field-infix {
+  font-family: "VarelaRound";
+}
+:host ::ng-deep input.mat-input-element {
+  font-family: "Objektiv-Regular";
+}
+
+:host
+  ::ng-deep
+  .mat-form-field-appearance-legacy
+  .mat-form-field-subscript-wrapper {
+  margin: 10px 0;
+  font-size: 14px;
+}
+:host ::ng-deep .mat-form-field {
+  font-size: 16px;
+  margin-top: 10px;
+  width: 100%;
+  margin-right: 30px;
+}
+/* for remove icon of skills */
+:host >>> .mat-list-base .mat-list-item .mat-list-item-content {
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* remove skill icon */
+.remove-skill {
+  color: black;
+  cursor: pointer;
+}
+.remove-skill:hover g {
+  fill: rgb(249, 170, 51) !important;
+  cursor: pointer;
+}
+:host >>> .mat-list-item:hover {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+}
+:host >>> .mat-list-item {
+  font-family: "Objektiv-Regular";
+  font-size: 16px;
+}

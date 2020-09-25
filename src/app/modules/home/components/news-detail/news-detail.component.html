@@ -1,0 +1,35 @@
+<div class="page">
+    <div class="container">
+        <div class="header">
+            <p class="news-title">
+                {{news?.title | titlecase}}
+            </p>
+            <p class="news-summary">
+                {{news?.summary}}
+            </p>
+            <p>
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip *ngFor="let tag of news?.tags">{{tag | titlecase}}</mat-chip>
+
+                </mat-chip-list>
+            </p>
+        </div>
+
+        <div class="content">
+            <img *ngIf="news?.imagePhoto" [src]="news?.imagePhoto" style="max-width: 711px;
+            max-height: 400px; margin: 20px;" alt="">
+            <div class="share">
+                <!-- <a href="#"><img src="https://img.icons8.com/fluent/25/000000/facebook-new.png" /></a>
+                <a href="#"><img src="https://img.icons8.com/fluent/25/000000/twitter.png" /></a>
+                <a href="#"><img src="https://img.icons8.com/fluent/25/000000/google-plus.png" /></a>
+                <a href="#"><img src="https://img.icons8.com/color/25/000000/linkedin-circled.png" /></a> -->
+                <p>Posted on {{news?.createdOn | date:'medium'}}</p>
+            </div>
+            <div class="description">
+                <p>
+                    {{news?.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

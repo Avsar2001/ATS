@@ -1,0 +1,135 @@
+<div class="container">
+    <svg class="close" matDialogClose (click)="close()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="login-title">Create Job Here</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+    <form class="normal-form" [formGroup]="jobForm">
+        <div class="control-containers">
+
+            <mat-form-field>
+                <mat-label>Job Title</mat-label>
+                <input type="text" formControlName="jobTitle" matInput
+                    placeholder="Ex. Summer Intern, Frontend Engineer" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="jobForm.get('jobTitle').hasError('required')">
+                    Job Title is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>job Type</mat-label>
+                <input type="text" formControlName="jobType" matInput placeholder="Ex. Internship, Full Time, Part Time"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="jobForm.get('jobType').hasError('required')">
+                    job Type is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Apply By</mat-label>
+                <input formControlName="dueDate" matInput [matDatepicker]="picker" placeholder="Ex. DD/MM/YYYY">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+                <mat-error *ngIf="jobForm.get('dueDate').hasError('required')">
+                    Due Date is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Job City</mat-label>
+                <input type="text" formControlName="city" matInput placeholder="Ex. Surat, Ahmedabad"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="jobForm.get('city').hasError('required')">
+                    Job City is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Job State</mat-label>
+                <input type="text" formControlName="state" matInput placeholder="Ex. Gujarat, Hariyana"
+                    [errorStateMatcher]="matcher">
+
+                <mat-error *ngIf="jobForm.get('state').hasError('required')">
+                    Job State is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Job Country</mat-label>
+
+                <input type="text" formControlName="country" matInput placeholder="Ex. India"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="jobForm.get('country').hasError('required')">
+                    Job Country is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Experience</mat-label>
+                <input type="number" formControlName="experience" matInput placeholder="Ex. In Years"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="jobForm.get('experience').hasError('required')">
+                    Experience is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Salary</mat-label>
+                <input type="text" formControlName="payPerAnnum" matInput placeholder="Ex. Annual Salary / CTC"
+                    [errorStateMatcher]="matcher">
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Minimum Qualification</mat-label>
+                <input type="text" formControlName="qualification" matInput placeholder="Ex. 2 Years"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="jobForm.get('qualification').hasError('required')">
+                    Minimum Qualification is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Company Website</mat-label>
+                <input type="text" formControlName="website" matInput placeholder="Ex. www.xyz.com/career"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="jobForm.get('website').hasError('required')">
+                    Company Website is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Job Description</mat-label>
+                <textarea matInput formControlName="description" [errorStateMatcher]="matcher"></textarea>
+                <mat-error *ngIf="jobForm.get('description').hasError('required')">
+                    Job Description is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <div>
+                <button class="btn-login" mat-raised-button color="primary" (click)="onSubmit()"
+                    type="submit">Create</button>
+            </div>
+
+        </div>
+    </form>
+</div>

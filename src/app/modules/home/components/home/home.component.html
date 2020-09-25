@@ -1,0 +1,301 @@
+<div class=" slider">
+  <owl-carousel-o [options]="customOptions">
+
+    <ng-container>
+      <ng-template carouselSlide>
+        <img src="../assets/images/image1.jpg">
+      </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-template carouselSlide>
+        <img src="../assets/images/image2.jpg">
+      </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-template carouselSlide>
+        <img src="../assets/images/image3.jpg">
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+</div>
+
+<!-- mat box starts here -->
+<div class="cards">
+  <div class="container">
+    <mat-grid-list cols="6" rowHeight="700px" gutterSize="20px">
+
+      <mat-grid-tile colspan="2" rowspan="1">
+        <div class="wow animate__animated animate__bounceInLeft" data-wow-delay="0.5s" data-wow-duration="1.5s">
+          <mat-card class="example-card">
+
+            <mat-card-header>
+              <div mat-card-avatar>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172"
+                  style=" fill:#000000;">
+                  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#ffffff">
+                      <path
+                        d="M44.72,13.75328c-0.7224,0 -1.44345,0.22763 -2.06265,0.69203l-11.69735,8.77469l-11.69734,-8.77469c-1.032,-0.7912 -2.43837,-0.89386 -3.60797,-0.30906c-1.1696,0.5848 -1.89469,1.75655 -1.89469,3.06375v131.02906c0,5.5384 4.33548,10.01094 9.70187,10.01094h96.93812c0.9288,0 1.79203,-0.37517 2.44563,-0.99437l34.4,-34.4c0.6192,-0.6536 0.99437,-1.51683 0.99437,-2.44563v-103.2c0,-1.3072 -0.72509,-2.47895 -1.89469,-3.06375c-1.1696,-0.5848 -2.57597,-0.48214 -3.60797,0.30906l-11.69735,8.77469l-11.69735,-8.77469c-1.2384,-0.9288 -2.88691,-0.9288 -4.12531,0l-11.69735,8.77469l-11.69735,-8.77469c-1.2384,-0.9288 -2.88691,-0.9288 -4.12531,0l-11.69735,8.77469l-11.69735,-8.77469c-1.2384,-0.9288 -2.88691,-0.9288 -4.12531,0l-11.69735,8.77469l-11.69735,-8.77469c-0.6192,-0.4644 -1.34025,-0.69203 -2.06265,-0.69203zM30.96,41.28h110.08v13.76h-110.08zM30.96,72.24h44.72v41.28h-44.72zM89.44,72.24h51.6v6.88h-51.6zM45.40531,82.56l-4.12531,4.12531v12.04l4.12531,3.78937h15.82937l4.12531,-3.78937v-4.12531v-4.12531h-4.12531h-3.78937l-4.12531,4.12531h7.91469v4.12531h-12.04h-3.78937v-12.04zM45.40531,86.68531h3.78937v12.04l4.12531,-4.12531v-7.91469h12.04l-4.12531,-4.12531h-12.04zM89.44,86h51.6v6.88h-51.6zM89.44,99.76h51.6v6.88h-51.6zM89.44,113.52h20.64v6.88h-20.64zM120.4,120.4h29.54906l-29.54906,29.54906zM30.96,127.28h44.72v6.88h-44.72zM89.44,127.28h20.64v6.88h-20.64z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <mat-card-title>News And Updates</mat-card-title>
+              <mat-card-subtitle>Latest</mat-card-subtitle>
+            </mat-card-header>
+            <mat-tab-group dynamicHeight>
+
+              <mat-tab [label]="n.createdOn | date " *ngFor="let n of news">
+
+                <!-- <div class="md-basic-image">
+                        <img mat-card-image src="../assets/images/image1.jpg" alt="Photo of a Shiba Inu">
+                      </div> -->
+                <mat-card-content>
+                  <mat-card-title style="font-family: 'Helvetica New Bold';">{{n?.title | titlecase}}</mat-card-title>
+                  <mat-card-subtitle style="font-family: 'Helvetica New';">{{n?.createdOn | date:'medium'}}
+                  </mat-card-subtitle>
+                  <p style="font-family: Objektiv-Regular">
+                    {{(n?.summary.length>400)? (n?.summary | slice:0:400)+'...':(n?.summary)}}
+                  </p>
+
+                </mat-card-content>
+                <mat-card-actions style="text-align: center;">
+                  <button mat-stroked-button [routerLink]="['../news/',n.id]">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172"
+                      style=" fill:#000000;">
+                      <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                        style="mix-blend-mode: normal">
+                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                        <g fill="#ffffff">
+                          <path
+                            d="M43,14.33333c-7.90483,0 -14.33333,6.4285 -14.33333,14.33333v114.66667c0,7.90483 6.4285,14.33333 14.33333,14.33333h44.86166c-1.57667,-2.2575 -2.9464,-4.65833 -4.14323,-7.16667h0.014c-0.02867,-0.05733 -0.05532,-0.11747 -0.08399,-0.18197c-0.91733,-1.94933 -1.68506,-3.96854 -2.35156,-6.04687c-1.55517,-4.816 -2.46354,-9.93199 -2.46354,-15.27116c0,-27.70633 22.46033,-50.16667 50.16667,-50.16667c2.43667,0 4.82317,0.23706 7.16667,0.57389v-0.04199c2.451,0.35833 4.84467,0.8937 7.16667,1.5817v-23.61361l-43,-43zM93.16667,24.76139l39.41667,39.73861h-39.41667zM129,93.16667c-20.06667,0 -35.83333,15.76667 -35.83333,35.83333c0,20.06667 15.76667,35.83333 35.83333,35.83333c7.16667,0 14.33893,-2.1556 20.07226,-5.73893l12.8916,12.9056l10.03614,-10.03614l-12.9056,-12.8916c3.58333,-5.73333 5.73893,-12.9056 5.73893,-20.07226c0,-20.06667 -15.76667,-35.83333 -35.83333,-35.83333zM129,107.5c12.18333,0 21.5,9.31667 21.5,21.5c0,12.18333 -9.31667,21.5 -21.5,21.5c-12.18333,0 -21.5,-9.31667 -21.5,-21.5c0,-12.18333 9.31667,-21.5 21.5,-21.5z">
+                          </path>
+                        </g>
+                      </g>
+                    </svg> View More
+                  </button>
+                </mat-card-actions>
+              </mat-tab>
+
+            </mat-tab-group>
+
+
+          </mat-card>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2">
+        <div class="wow animate__animated animate__bounceInUp" data-wow-delay="0.5s" data-wow-duration="1.5s">
+          <mat-card class="example-card">
+
+            <mat-card-header>
+              <div mat-card-avatar>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172"
+                  style=" fill:#000000;">
+                  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#ffffff">
+                      <path
+                        d="M41.28,0c-3.7625,0 -6.88,3.1175 -6.88,6.88v6.88h-20.64c-3.99094,0 -6.88,2.88906 -6.88,6.88v24.08h158.24v-24.08c0,-3.99094 -2.88906,-6.88 -6.88,-6.88h-20.64v-6.88c0,-3.7625 -3.1175,-6.88 -6.88,-6.88h-6.88c-3.7625,0 -6.88,3.1175 -6.88,6.88v6.88h-61.92v-6.88c0,-3.7625 -3.1175,-6.88 -6.88,-6.88zM41.28,6.88h6.88v20.64h-6.88zM123.84,6.88h6.88v20.64h-6.88zM6.88,51.6v106.64c0,3.80281 3.07719,6.88 6.88,6.88h144.48c3.80281,0 6.88,-3.07719 6.88,-6.88v-106.64zM41.28,72.24h17.2v17.2h-17.2zM65.36,72.24h17.2v17.2h-17.2zM89.44,72.24h17.2v17.2h-17.2zM113.52,72.24h17.2v17.2h-17.2zM41.28,96.32h17.2v17.2h-17.2zM65.36,96.32h17.2v17.2h-17.2zM113.52,96.32h17.2v17.2h-17.2zM41.28,120.4h17.2v17.2h-17.2zM65.36,120.4h17.2v17.2h-17.2zM89.44,120.4h17.2v17.2h-17.2zM113.52,120.4h17.2v17.2h-17.2z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <mat-card-title>Events</mat-card-title>
+              <mat-card-subtitle>Latest</mat-card-subtitle>
+            </mat-card-header>
+            <mat-tab-group dynamicHeight>
+
+              <mat-tab [label]="event?.eventDate | date" *ngFor="let event of eventsList">
+
+                <!-- <div class="md-basic-image">
+                        <img mat-card-image src="../assets/images/image1.jpg" alt="Photo of a Shiba Inu">
+                      </div> -->
+                <mat-card-content>
+                  <mat-card-title style="font-family: 'Helvetica New Bold';">{{event?.t | titlecase}}</mat-card-title>
+                  <mat-card-subtitle style=" font-family: 'Helvetica New';">{{event?.eventDate | date}} -
+                    {{event?.eventTime}}
+                  </mat-card-subtitle>
+                  <p style="font-family: Objektiv-Regular">
+                    {{(event?.description.length>400)? (event?.description | slice:0:400)+'...':(event?.description)}}
+                  </p>
+
+                </mat-card-content>
+                <mat-card-actions style="text-align: center;">
+                  <button mat-stroked-button [routerLink]="['/events/',event.id]">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172"
+                      style=" fill:#000000;">
+                      <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                        style="mix-blend-mode: normal">
+                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                        <g fill="#ffffff">
+                          <path
+                            d="M43,14.33333c-7.90483,0 -14.33333,6.4285 -14.33333,14.33333v114.66667c0,7.90483 6.4285,14.33333 14.33333,14.33333h44.86166c-1.57667,-2.2575 -2.9464,-4.65833 -4.14323,-7.16667h0.014c-0.02867,-0.05733 -0.05532,-0.11747 -0.08399,-0.18197c-0.91733,-1.94933 -1.68506,-3.96854 -2.35156,-6.04687c-1.55517,-4.816 -2.46354,-9.93199 -2.46354,-15.27116c0,-27.70633 22.46033,-50.16667 50.16667,-50.16667c2.43667,0 4.82317,0.23706 7.16667,0.57389v-0.04199c2.451,0.35833 4.84467,0.8937 7.16667,1.5817v-23.61361l-43,-43zM93.16667,24.76139l39.41667,39.73861h-39.41667zM129,93.16667c-20.06667,0 -35.83333,15.76667 -35.83333,35.83333c0,20.06667 15.76667,35.83333 35.83333,35.83333c7.16667,0 14.33893,-2.1556 20.07226,-5.73893l12.8916,12.9056l10.03614,-10.03614l-12.9056,-12.8916c3.58333,-5.73333 5.73893,-12.9056 5.73893,-20.07226c0,-20.06667 -15.76667,-35.83333 -35.83333,-35.83333zM129,107.5c12.18333,0 21.5,9.31667 21.5,21.5c0,12.18333 -9.31667,21.5 -21.5,21.5c-12.18333,0 -21.5,-9.31667 -21.5,-21.5c0,-12.18333 9.31667,-21.5 21.5,-21.5z">
+                          </path>
+                        </g>
+                      </g>
+                    </svg> View More
+                  </button>
+                </mat-card-actions>
+              </mat-tab>
+
+
+            </mat-tab-group>
+
+          </mat-card>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2" *ngIf="!isUserLoggedIn">
+        <div class="wow animate__animated animate__bounceInRight" data-wow-delay="0.5s" data-wow-duration="1.5s">
+          <mat-card class="example-card">
+
+            <mat-card-header>
+              <div mat-card-avatar>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172"
+                  style=" fill:#000000;">
+                  <g transform="">
+                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                      stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                      font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                      style="mix-blend-mode: normal">
+                      <path d="M0,172v-172h172v172z" fill="none"></path>
+                      <path d="" fill="none"></path>
+                      <g fill="#ffffff">
+                        <path
+                          d="M106.06667,17.2c-26.91227,0 -48.73333,21.82107 -48.73333,48.73333c0,5.97582 1.13319,11.67424 3.10183,16.96484l-43.23516,43.23516v28.66667h28.66667v-17.2h17.2v-17.2h17.2l8.83516,-8.83516c5.29061,1.96863 10.98902,3.10183 16.96484,3.10183c26.91227,0 48.73333,-21.82107 48.73333,-48.73333c0,-26.91227 -21.82107,-48.73333 -48.73333,-48.73333zM117.53333,40.13333c7.91773,0 14.33333,6.4156 14.33333,14.33333c0,7.91773 -6.4156,14.33333 -14.33333,14.33333c-7.91773,0 -14.33333,-6.4156 -14.33333,-14.33333c0,-7.91773 6.4156,-14.33333 14.33333,-14.33333z">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <mat-card-title>Register/Sign In</mat-card-title>
+              <mat-card-subtitle>Login Here</mat-card-subtitle>
+            </mat-card-header>
+
+            <hr style="border-color: rgb(96,120,131);">
+            <mat-card-content style="text-align: center; margin-top: 40px;">
+              <p>
+                Connect with world's largest community of colleges and thier alumnnies
+              </p>
+              <button mat-raised-button (click)="openLogin()"
+                style="background-color: rgb(249, 170, 51); margin: 20px; color: white; outline: none;">
+                Login Here
+              </button>
+              <button mat-raised-button (click)="openRegister()"
+                style="background-color: rgb(249, 170, 51); margin: 20px; color: white; outline: none;">
+                Be a part of community Here
+              </button>
+
+
+            </mat-card-content>
+
+          </mat-card>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+  </div>
+</div>
+
+<h1 class="gallary-heading"> Visit Our Gallary </h1>
+
+<br><br>
+<div class="gallary">
+  <div class="container gallary-inner">
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="0.5s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="2.3s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" style="height: 300px;"
+          src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/LTLE4QGRVQ.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="0.8s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="2.6s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" style="height: 300px;"
+          src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/U9PP3KXXY2.jpg">
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="1.1s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" style="height: 300px;"
+          src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="2.9s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/LTLE4QGRVQ.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="1.4s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" style="height: 300px;"
+          src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="3.2s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/U9PP3KXXY2.jpg">
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="3.5s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="1.7s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" style="height: 300px;"
+          src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/LTLE4QGRVQ.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="3.8s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg">
+      </div>
+      <div fxFlex="20%" class="wow animate__animated animate__pulse" data-wow-delay="2s" data-wow-duration="0.5s">
+        <img mat-card-image class="img" style="height: 300px;"
+          src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/U9PP3KXXY2.jpg">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- mat box ends here -->
+
+<!-- job starts here -->
+
+<div class="job-title text-center" style="margin: 0 0 40px 0;">
+  <h3 class="wow animate__animated animate__pulse" data-wow-delay="0.5s" data-wow-duration="1s">Latest Offering Jobs
+  </h3>
+  <h6 class="alt" routerLink="../jobs">SO WHAT WE HAVE?</h6>
+</div>
+
+<div class="container">
+  <div class="job-row">
+    <div class="wow animate__animated animate__bounceInDown" data-wow-delay="1s" data-wow-duration="1s">
+      <app-jobs-card *ngFor="let j of jobCards; let i = index;" [id]="j.id" [isVerified]="j.verificationStatus">
+        <div class="title">{{j?.jobTitle | titlecase}}</div>
+        <span class="date">{{j?.dueDate | date}}</span>
+        <div class="job-location">{{j?.city}}, {{j?.state}}, {{j?.country}}</div>
+        <div class="description">{{j?.payPerAnnum}}, Exp {{j?.experience}} yrs</div>
+      </app-jobs-card>
+    </div>
+  </div>
+</div>
+<!-- job Ends here -->
+<br><br>

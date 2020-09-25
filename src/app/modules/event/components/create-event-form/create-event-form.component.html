@@ -1,0 +1,113 @@
+<div class="container">
+    <svg class="close" matDialogClose (click)="close()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="login-title">Create Event Here</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+    <form class="normal-form" [formGroup]="eventForm">
+        <div class="control-containers">
+
+            <mat-form-field>
+                <mat-label>Event Title</mat-label>
+                <input type="text" formControlName="t" matInput placeholder="Ex. Annual Virtual Meet, Tarang 2020"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="eventForm.get('t').hasError('required')">
+                    Event Title is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Host Group Name</mat-label>
+                <input type="text" formControlName="host" matInput placeholder="Ex. LDCE, Team Robocon"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="eventForm.get('host').hasError('required')">
+                    Host is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Event Date</mat-label>
+                <input formControlName="eventDate" matInput [matDatepicker]="picker" placeholder="Ex. DD/MM/YYYY">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="eventForm.get('eventDate').hasError('required')">
+                    Event Date is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Event Time</mat-label>
+
+                <input type="time" formControlName="eventTime" matInput [errorStateMatcher]="matcher">
+                <mat-error *ngIf="eventForm.get('eventTime').hasError('required')">
+                    Event Time is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Event Duration</mat-label>
+                <input type="number" formControlName="duration" matInput placeholder="In Hours"
+                    [errorStateMatcher]="matcher">
+
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <mat-label>City</mat-label>
+                <input type="text" formControlName="city" matInput placeholder="Ex. Surat, Ahmedabad"
+                    [errorStateMatcher]="matcher">
+                <mat-error *ngIf="eventForm.get('city').hasError('required')">
+                    City is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Location Url</mat-label>
+                <input type="text" formControlName="location" matInput [errorStateMatcher]="matcher"
+                    placeholder="Ex. https://www.google.com/maps/place/Surat,+Gujarat/@21.1591425,72.6822102,11z/data=!3m1!4b1!4m5!3m4!1s0x3be04e59411d1563:0xfe4558290938b042!8m2!3d21.1702401!4d72.8310607">
+
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <mat-label>Event Description</mat-label>
+                <textarea matInput formControlName="description" [errorStateMatcher]="matcher"></textarea>
+                <mat-error *ngIf="eventForm.get('description').hasError('required')">
+                    Event Description is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <div style="display: flex;">
+                    <i (click)="myFileInput.click()" class="material-icons upload-icon">file_upload</i>
+                    <input type="file" #myFileInput (change)="onPhotoSubmit($event)" hidden="true">
+                    <input #fileName disabled="true" value="Event Cover Photo" type="text" matInput>
+                </div>
+            </mat-form-field>
+
+
+            <div>
+                <button class="btn-login" mat-raised-button color="primary" (click)="onSubmit()"
+                    type="submit">Create</button>
+            </div>
+
+        </div>
+    </form>
+</div>

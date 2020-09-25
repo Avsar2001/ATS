@@ -1,0 +1,118 @@
+.page {
+  margin-bottom: 30px;
+}
+.job-image {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6) 27%,
+    rgba(0, 0, 0, 0.2)
+  );
+  background-image: url(../../../../../assets/images/job.jpg);
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  transition: opacity 0.5s linear 0s;
+  border-radius: 0px;
+  z-index: 3;
+}
+.job-overlay {
+  background: linear-gradient(180deg, hsla(0, 0%, 96.1%, 0.7) 0, #f5f5f5);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 200px;
+}
+.content {
+  position: relative;
+}
+.logo {
+  width: 75px;
+  height: 75px;
+  background: white;
+  position: relative;
+  left: 132px;
+  top: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.content .title {
+  position: relative;
+  left: 170px;
+  top: 42px;
+}
+.content .title #position {
+  font-size: 30px;
+  font-family: "Helvetica New Bold", sans-serif;
+}
+.content .title #summary {
+  font-size: 15px;
+  font-family: "VarelaRound", sans-serif;
+  color: rgb(118, 126, 149);
+}
+.content .title #properties {
+  color: green;
+}
+.content .title #properties #location {
+  margin-right: 20px;
+  color: rgb(118, 126, 149);
+  font-family: "Helvetica New", sans-serif;
+}
+
+/* body starts here */
+.body {
+  background: white;
+}
+:host >>> .mat-grid-tile .mat-figure {
+  display: contents;
+}
+.body #body-title {
+  font-size: 20px;
+  margin: 30px 0;
+  font-family: "Helvetica New Bold", sans-serif;
+  letter-spacing: 0.5px;
+}
+.body #body-content p {
+  margin-bottom: 20px;
+  font-family: "Objektiv-Regular";
+  color: rgb(118, 126, 149);
+}
+.body .job-summary {
+  height: 75%;
+  width: 100%;
+  margin: 30px;
+  background: rgb(251, 251, 251);
+  border-radius: 0.25rem;
+}
+.body .job-summary #summary-title {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  background: rgb(243, 243, 243);
+  font-size: 17px;
+  font-family: "Helvetica New Bold", sans-serif;
+  border-radius: 0.25rem;
+}
+.body .job-summary #summary-title span {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+.body .job-summary .icon {
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+.body .job-summary .summary-vise-list .title {
+  margin-bottom: 0px;
+  font-size: 15px;
+  font-family: "Helvetica New Bold", sans-serif;
+}
+.body .job-summary .summary-vise-list .content {
+  font-family: "VarelaRound", sans-serif;
+}

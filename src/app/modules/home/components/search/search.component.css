@@ -1,0 +1,159 @@
+.search-bar {
+  margin-top: 10px;
+  height: 50px;
+  text-align: center;
+}
+.header {
+  text-align: center;
+  margin: 30px 0;
+}
+.page-title {
+  letter-spacing: normal;
+  font-family: "VarelaRound", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  text-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 10px 30px rgba(0, 0, 0, 0.12);
+}
+.page-subtitle {
+  font-family: "Helvetica New Bold", sans-serif;
+  color: #8997a7;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0;
+  outline: none;
+}
+
+/* input color class */
+:host ::ng-deep input.mat-input-element {
+  color: #484a4c;
+}
+
+/* Change label color on focused */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: rgb(249, 170, 51) !important;
+}
+
+/* underline border color on focused */
+:host ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+  background-color: rgb(249, 170, 51) !important;
+}
+/* for mat input field */
+:host ::ng-deep .mat-form-field-infix {
+  font-family: "VarelaRound";
+}
+:host ::ng-deep input.mat-input-element {
+  font-family: "Objektiv-Regular";
+}
+
+:host
+  ::ng-deep
+  .mat-form-field-appearance-legacy
+  .mat-form-field-subscript-wrapper {
+  margin: 10px 0;
+  font-size: 14px;
+}
+:host ::ng-deep .mat-form-field {
+  font-size: 16px;
+  margin-top: 10px 0;
+  width: 70%;
+  padding: 5px;
+}
+/* for alumni card */
+.wrapper {
+  margin-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-card {
+  text-align: center;
+  margin: 16px;
+}
+
+.profile-card .card-bio {
+  background: #fff;
+  margin: 5px;
+  margin-bottom: 50px;
+  width: 300px;
+  padding: 20px;
+  line-height: 20px;
+  color: #8e8b8b;
+  position: relative;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 10px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+
+.profile-card .card-bio .profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  background: white;
+  /* background-image: url(../../../../../assets/images/profile1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% center; */
+}
+
+.pull-up {
+  transition: all 0.25s ease !important;
+}
+.pull-up:hover {
+  cursor: pointer;
+  box-shadow: 0 14px 24px rgba(62, 57, 107, 0.2);
+  z-index: 30;
+}
+
+.profile-card .card-bio .quote-img {
+  margin-top: 50px;
+}
+.profile-card .card-bio .person-bio {
+  font-family: "Objektiv-Regular";
+  margin: 16px 0;
+}
+.profile-card .personal-info {
+  background: rgb(249, 170, 51);
+  width: 230px;
+  position: relative;
+  top: -70px;
+  left: 100px;
+  height: 90px;
+  padding: 5px;
+  border-radius: 5px;
+
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 10px 30px rgba(0, 0, 0, 0.12);
+}
+.profile-card .personal-info h3 {
+  color: bisque;
+  font-size: 26px;
+  margin-bottom: 0px;
+  font-family: "Helvetica New Bold";
+}
+.username {
+  color: rgb(249, 170, 51);
+  font-size: 18px;
+  margin: 16px;
+  font-family: "VarelaRound";
+  text-align: right;
+}
+.profile-card .personal-info .role {
+  color: bisque;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  font-family: "VarelaRound";
+}

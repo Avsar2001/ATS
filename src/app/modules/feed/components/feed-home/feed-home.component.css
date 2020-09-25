@@ -1,0 +1,235 @@
+.feed-page {
+  margin: 30px;
+}
+.events-title {
+  font-family: "VarelaRound";
+  line-height: 1.2 !important;
+  color: #464855;
+  font-weight: 500 !important;
+  letter-spacing: 0.05rem !important;
+  font-size: 1.31rem !important;
+}
+.event-title {
+  font-weight: 500 !important;
+  letter-spacing: 0.05rem !important;
+  font-size: 1.12rem !important;
+  font-family: "VarelaRound";
+  margin-bottom: 1rem !important;
+  line-height: 1.2 !important;
+  color: #464855;
+}
+.event-description {
+  font-family: "Objektiv-Regular";
+  color: #6b6f82;
+  text-align: left;
+  font-size: 0.9rem !important;
+}
+.news-card {
+  background: rgb(249, 170, 51);
+  border: none;
+}
+.news-card .date {
+  margin-bottom: 0.25rem !important;
+  letter-spacing: 0.5px !important;
+  font-family: "VarelaRound";
+}
+.news-card .news-title {
+  font-size: 1.51rem !important;
+  margin-bottom: 0.5rem !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  font-family: "VarelaRound";
+}
+.news-card .news-description {
+  letter-spacing: 0.5px !important;
+  font-family: "Objektiv-Regular";
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+}
+.blog-title {
+  background-color: #fff;
+  border-radius: 0.25rem 0.25rem 0 0;
+  border-color: #babfc7 #babfc7 #fff !important;
+  line-height: 1.8;
+  padding: 1rem !important;
+  color: #4e5154;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  font-family: "VarelaRound";
+}
+.post-content::placeholder {
+  color: #4e5154;
+  opacity: 0.5;
+  font-family: "Objektiv-Regular";
+}
+.post-content {
+  color: #4e5154;
+  font-family: "Objektiv-Regular";
+}
+.post-content:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.post-button {
+  box-shadow: 0 1px 20px 1px rgb(249, 170, 51, 0.6);
+  background: rgb(249, 170, 51);
+  color: white;
+  font-family: "VarelaRound";
+}
+.img-icon {
+  margin-left: 1rem !important;
+  cursor: pointer;
+}
+/* for feed posts */
+.feed-post {
+  margin: 20px 0;
+}
+.author-profile {
+  width: 50px !important;
+  border-radius: 50% !important;
+  height: 50px;
+  object-fit: cover;
+}
+.author-name {
+  font-size: 1.14rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #464855;
+  font-family: "VarelaRound";
+}
+.post-time {
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  color: #464855;
+  font-family: "VarelaRound";
+}
+.post-description {
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #6b6f82;
+  font-family: "Objektiv-Regular";
+}
+.like-profile-img {
+  border-radius: 50% !important;
+  z-index: 1;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 10px 0 rgba(107, 111, 130, 0.3);
+  position: relative;
+  width: 36px;
+  height: 36px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  margin-left: -10px;
+}
+.extra-like {
+  border-radius: 50% !important;
+  z-index: 1;
+  color: #fff;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.8;
+  margin-left: -10px;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+.pull-up {
+  transition: all 0.25s ease !important;
+  border-radius: 50%;
+}
+.pull-up:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 24px rgba(62, 57, 107, 0.2);
+  z-index: 30;
+}
+.extra-like-profile {
+  background: rgba(255, 255, 255, 0.8);
+  color: #6b6f82;
+  margin-bottom: 2px;
+  z-index: 2;
+}
+.like-icon:hover {
+  cursor: pointer;
+}
+.comment-icon:hover {
+  cursor: pointer;
+}
+/* for expansion panel */
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+/* for comment text area */
+/* input color class */
+:host ::ng-deep input.mat-input-element {
+  color: #484a4c;
+}
+
+/* Change label color on focused */
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: rgb(249, 170, 51) !important;
+}
+
+/* underline border color on focused */
+:host ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+  background-color: rgb(249, 170, 51) !important;
+}
+:host ::ng-deep .mat-form-field-infix {
+  font-family: "VarelaRound";
+}
+:host ::ng-deep input.mat-input-element {
+  font-family: "Objektiv-Regular";
+}
+
+:host
+  ::ng-deep
+  .mat-form-field-appearance-legacy
+  .mat-form-field-subscript-wrapper {
+  margin: 10px 0;
+  font-size: 14px;
+}
+:host ::ng-deep .mat-form-field {
+  font-size: 16px;
+  width: 95%;
+}
+/* for style of expansion panel conetent */
+.add-comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-list {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+  gap: 20px;
+}
+.comment-list .content .name {
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #464855;
+  font-family: "VarelaRound";
+}
+.comment-list .content p {
+  font-family: "Objektiv-Regular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #6b6f82;
+}

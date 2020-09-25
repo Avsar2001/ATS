@@ -1,0 +1,44 @@
+.feature {
+  overflow: hidden;
+  padding: 20px 60px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-family: "VarelaRound", sans-serif;
+  margin: 10px 0;
+}
+.feature img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 121px;
+  height: 121px;
+}
+.feature:hover {
+  background: #e8e8ea;
+}
+.feature:before {
+  content: " ";
+  background: rgb(249, 170, 51);
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  z-index: 2;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  bottom: -35px;
+  right: -35px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+.feature:hover:before {
+  width: 80px;
+  height: 80px;
+  bottom: -40px;
+  right: -40px;
+}
+.feature h4 {
+  font-family: "Helvetica New Bold", sans-serif;
+  margin-top: 5px;
+}
+.read-more {
+  color: rgb(249, 170, 51);
+}

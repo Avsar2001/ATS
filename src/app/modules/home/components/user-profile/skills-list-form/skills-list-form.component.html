@@ -1,0 +1,59 @@
+<div class="container">
+    <svg class="close" (click)="close()" matDialogClose xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24"
+        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#000000">
+                <path
+                    d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                </path>
+            </g>
+        </g>
+    </svg>
+    <mat-toolbar>
+        <span class="remaining-space"></span>
+        <span class="login-title">Reorder Your Skills Here</span>
+        <span class="remaining-space"></span>
+    </mat-toolbar>
+
+    <form class="normal-form" [formGroup]="skillsForm">
+        <mat-form-field>
+            <mat-label>Add Skill</mat-label>
+            <input type="text" formControlName="skill" matInput placeholder="Ex. Hibernate, Angular"
+                [errorStateMatcher]="matcher">
+            <mat-error *ngIf="skillsForm.get('skill').hasError('required')">
+                Skill name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <div>
+            <button class="btn-login" (click)="addSkill()" mat-raised-button color="primary" type="submit">Add</button>
+        </div>
+    </form>
+
+    <mat-list dragula="SKILLSLIST" [(dragulaModel)]="skillsList">
+        <mat-list-item *ngFor="let l of skillsList; let i=index;"> {{l | titlecase}}
+            <svg (click)="removeSkill(i)" class="remove-skill" matDialogClose xmlns="http://www.w3.org/2000/svg" x="0px"
+                y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#000000">
+                        <path
+                            d="M40.90039,30.76628l-10.13411,10.13411l45.09961,45.09961l-45.09961,45.09961l10.13411,10.13411l45.09961,-45.09961l45.09961,45.09961l10.13411,-10.13411l-45.09961,-45.09961l45.09961,-45.09961l-10.13411,-10.13411l-45.09961,45.09961z">
+                        </path>
+                    </g>
+                </g>
+            </svg>
+        </mat-list-item>
+
+    </mat-list>
+
+    <div>
+        <button class="btn-login" mat-raised-button color="primary" type="button" (click)="onSubmit()">Update</button>
+    </div>
+</div>
